@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/authors/admin/</link>
+    <description>Recent content on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/authors/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Evaluating Differentially Private Machine Learning in Practice</title>
+      <link>https://bargavjayaraman.github.io/publication/evaluating-dpml/</link>
+      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/evaluating-dpml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Learning without Distress: Privacy-Preserving Empirical Risk Minimization</title>
+      <link>https://bargavjayaraman.github.io/publication/dp-erm/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/dp-erm/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/rwyWiDyVmjE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Why you should evaluate your private model</title>
+      <link>https://bargavjayaraman.github.io/post/evaluating-dpml-intro/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/evaluating-dpml-intro/</guid>
+      <description>
+
+&lt;p&gt;Privacy concerns arise when training machine learning models over sensitive data such as personal information about individuals. These concerns become more serious when the trained models are publicly deployed as a service. While differential privacy can alleviate these privacy concerns, it is highly sensitive to the implementation choices such as the privacy budget and the type of differential privacy relaxation used. In our paper (to appear in USENIX Security’19), we experimentally evaluate the impact of these implementation choices on the privacy leakage. More concretely, we quantify how much information is leaked to the adversary.&lt;/p&gt;
+
+&lt;p&gt;The following fictional scenario illustrates the privacy concerns and the risks involved in publicly deploying models without properly analysing the differential privacy implementation choices.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-quickservice-bank-scenario&#34;&gt;The QuickService Bank Scenario&lt;/h1&gt;
+
+&lt;p&gt;When you go to a bank for a personal loan, the approval process often takes &lt;a href=&#34;https://studentloanhero.com/featured/how-long-does-it-take-to-get-approved-for-a-personal-loan/&#34; target=&#34;_blank&#34;&gt;from a day or two to a couple of weeks&lt;/a&gt;. However the QuickService Bank, living up to its name, launched an online service where you could enter your personal details and get an instant loan approval. The workhorse behind this quick service is their state-of-the-art machine learning model trained on the bank’s existing customer data.&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/quickservicebank_scenario.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;what-went-wrong&#34;&gt;What went wrong?&lt;/h2&gt;
+
+&lt;p&gt;The online loan approval service earned great popularity and brought in more business for QuickService Bank. But the bank’s joy didn’t last for long. Mandark, a notorious black-hat hacker, prowled on the online service and started leaking the identity of the bank’s customers. This type of attack is called &lt;a href=&#34;https://ieeexplore.ieee.org/document/7958568&#34; target=&#34;_blank&#34;&gt;membership inference&lt;/a&gt; where the attacker identifies the presence or absence of a record in the training data.
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/mandark_attack.png&#34; &gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;differential-privacy-to-the-rescue&#34;&gt;Differential privacy to the rescue!&lt;/h2&gt;
+
+&lt;p&gt;Dismayed by the attack, QuickService Bank temporarily disabled the online service and hired Dexter who is a security expert. Dexter learns about &lt;a href=&#34;https://www.microsoft.com/en-us/research/publication/differential-privacy/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F64346%2Fdwork.pdf&#34;&gt;differential privacy&lt;/a&gt; and decides to deploy it for privately training the bank’s loan approval model while still prioritizing the model’s accuracy. But due to the model’s complexity, the required privacy budget turned out to be 1000.
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/dexter_dp.png&#34; &gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/dexter_rdp.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+Dexter, knowing that such a high budget might not be desirable for strong privacy, uses relaxed definitions (&lt;a href=&#34;https://arxiv.org/abs/1603.01887&#34;&gt;here&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1605.02065&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://arxiv.org/abs/1702.07476&#34;&gt;here&lt;/a&gt;) to reduce the budget to 10 without compromising on the model accuracy. Happy with his privacy implementation, Dexter asked QuickService Bank to make the service online again.&lt;/p&gt;
+
+&lt;h2 id=&#34;again-what-went-wrong&#34;&gt;Again… what went wrong?&lt;/h2&gt;
+
+&lt;p&gt;Though the differential privacy safeguard reduced Mandark’s attack success rate, he was still able to reveal the membership information of a few bank customers. Why did this happen? While the relaxed definitions allows the reduction in privacy budget, the amount of noise added in the model training remains the same. Thus, the effective privacy is the same as provided by differential privacy with high privacy budget.&lt;/p&gt;
+
+&lt;p&gt;In the next post, we will further explore this observation through empirical evaluation on real world data sets.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting Vague Words and Phrases in Requirements Documents in a Multilingual Environment</title>
+      <link>https://bargavjayaraman.github.io/publication/vagueness/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/vagueness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decentralized Certificate Authorities</title>
+      <link>https://bargavjayaraman.github.io/publication/dca/</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/dca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aggregating Private Sparse Learning Models Using Multi-Party Computation</title>
+      <link>https://bargavjayaraman.github.io/publication/model-aggregation/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/model-aggregation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Privacy Preserving String Matching for Cloud Computing</title>
+      <link>https://bargavjayaraman.github.io/publication/searchable-encryption/</link>
+      <pubDate>Mon, 29 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/searchable-encryption/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://bargavjayaraman.github.io/authors/admin/</link>
+      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/authors/admin/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m currently doing PhD in Computer Science at School of Engineering and Applied Science, University of Virginia. I am advised by &lt;a href=&#34;https://www.cs.virginia.edu/~evans/&#34; target=&#34;_blank&#34;&gt;Professor David Evans&lt;/a&gt; and my area of research is broadly in &lt;a href=&#34;https://oblivc.org/ppml/&#34; target=&#34;_blank&#34;&gt;Privacy Preserving Machine Learning&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

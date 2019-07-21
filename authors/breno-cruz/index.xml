@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Breno Cruz on Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/authors/breno-cruz/</link>
+    <description>Recent content in Breno Cruz on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/authors/breno-cruz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Detecting Vague Words and Phrases in Requirements Documents in a Multilingual Environment</title>
+      <link>https://bargavjayaraman.github.io/publication/vagueness/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/vagueness/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

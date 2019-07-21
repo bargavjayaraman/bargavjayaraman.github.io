@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/</link>
+    <description>Recent content on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Example Talk</title>
+      <link>https://bargavjayaraman.github.io/talk/example/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/talk/example/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Evaluating Differentially Private Machine Learning in Practice</title>
+      <link>https://bargavjayaraman.github.io/publication/evaluating-dpml/</link>
+      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/evaluating-dpml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributed Learning without Distress: Privacy-Preserving Empirical Risk Minimization</title>
+      <link>https://bargavjayaraman.github.io/publication/dp-erm/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/dp-erm/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/rwyWiDyVmjE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Why you should evaluate your private model</title>
+      <link>https://bargavjayaraman.github.io/post/evaluating-dpml-intro/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/evaluating-dpml-intro/</guid>
+      <description>
+
+&lt;p&gt;Privacy concerns arise when training machine learning models over sensitive data such as personal information about individuals. These concerns become more serious when the trained models are publicly deployed as a service. While differential privacy can alleviate these privacy concerns, it is highly sensitive to the implementation choices such as the privacy budget and the type of differential privacy relaxation used. In our paper (to appear in USENIX Security’19), we experimentally evaluate the impact of these implementation choices on the privacy leakage. More concretely, we quantify how much information is leaked to the adversary.&lt;/p&gt;
+
+&lt;p&gt;The following fictional scenario illustrates the privacy concerns and the risks involved in publicly deploying models without properly analysing the differential privacy implementation choices.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-quickservice-bank-scenario&#34;&gt;The QuickService Bank Scenario&lt;/h1&gt;
+
+&lt;p&gt;When you go to a bank for a personal loan, the approval process often takes &lt;a href=&#34;https://studentloanhero.com/featured/how-long-does-it-take-to-get-approved-for-a-personal-loan/&#34; target=&#34;_blank&#34;&gt;from a day or two to a couple of weeks&lt;/a&gt;. However the QuickService Bank, living up to its name, launched an online service where you could enter your personal details and get an instant loan approval. The workhorse behind this quick service is their state-of-the-art machine learning model trained on the bank’s existing customer data.&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/quickservicebank_scenario.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+
+&lt;h2 id=&#34;what-went-wrong&#34;&gt;What went wrong?&lt;/h2&gt;
+
+&lt;p&gt;The online loan approval service earned great popularity and brought in more business for QuickService Bank. But the bank’s joy didn’t last for long. Mandark, a notorious black-hat hacker, prowled on the online service and started leaking the identity of the bank’s customers. This type of attack is called &lt;a href=&#34;https://ieeexplore.ieee.org/document/7958568&#34; target=&#34;_blank&#34;&gt;membership inference&lt;/a&gt; where the attacker identifies the presence or absence of a record in the training data.
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/mandark_attack.png&#34; &gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;differential-privacy-to-the-rescue&#34;&gt;Differential privacy to the rescue!&lt;/h2&gt;
+
+&lt;p&gt;Dismayed by the attack, QuickService Bank temporarily disabled the online service and hired Dexter who is a security expert. Dexter learns about &lt;a href=&#34;https://www.microsoft.com/en-us/research/publication/differential-privacy/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F64346%2Fdwork.pdf&#34;&gt;differential privacy&lt;/a&gt; and decides to deploy it for privately training the bank’s loan approval model while still prioritizing the model’s accuracy. But due to the model’s complexity, the required privacy budget turned out to be 1000.
+
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/dexter_dp.png&#34; &gt;
+
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+
+
+
+
+
+&lt;figure&gt;
+
+&lt;img src=&#34;img/dexter_rdp.png&#34; &gt;
+
+
+&lt;/figure&gt;
+
+Dexter, knowing that such a high budget might not be desirable for strong privacy, uses relaxed definitions (&lt;a href=&#34;https://arxiv.org/abs/1603.01887&#34;&gt;here&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1605.02065&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://arxiv.org/abs/1702.07476&#34;&gt;here&lt;/a&gt;) to reduce the budget to 10 without compromising on the model accuracy. Happy with his privacy implementation, Dexter asked QuickService Bank to make the service online again.&lt;/p&gt;
+
+&lt;h2 id=&#34;again-what-went-wrong&#34;&gt;Again… what went wrong?&lt;/h2&gt;
+
+&lt;p&gt;Though the differential privacy safeguard reduced Mandark’s attack success rate, he was still able to reveal the membership information of a few bank customers. Why did this happen? While the relaxed definitions allows the reduction in privacy budget, the amount of noise added in the model training remains the same. Thus, the effective privacy is the same as provided by differential privacy with high privacy budget.&lt;/p&gt;
+
+&lt;p&gt;In the next post, we will further explore this observation through empirical evaluation on real world data sets.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>https://bargavjayaraman.github.io/slides/example/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/slides/example/</guid>
+      <description>
+
+&lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
+&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
+&lt;li&gt;Supports speaker notes&lt;/li&gt;
+&lt;li&gt;Mobile friendly slides&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js#pdf-export&#34; target=&#34;_blank&#34;&gt;PDF Export&lt;/a&gt;: &lt;code&gt;E&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
+
+&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Code block:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;porridge = &amp;quot;blueberry&amp;quot;
+if porridge == &amp;quot;blueberry&amp;quot;:
+    print(&amp;quot;Eating...&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+
+&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
+
+&lt;p&gt;Block math:&lt;/p&gt;
+
+&lt;p&gt;$$
+f\left( x \right) = \;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
+
+&lt;p&gt;Make content appear incrementally&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
+{{% fragment %}} **Two** {{% /fragment %}}
+{{% fragment %}} Three {{% /fragment %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
+   One
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   &lt;strong&gt;Two&lt;/strong&gt;
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   Three
+&lt;/span&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
+
+&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{% speaker_note %}}
+- Only the speaker can read these notes
+- Press `S` key to view
+{{% /speaker_note %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
+
+&lt;aside class=&#34;notes&#34;&gt;
+  &lt;ul&gt;
+&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
+&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
+&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
+&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
+&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
+&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/img/boards.jpg&#34;
+  &gt;
+
+
+&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
+
+&lt;p&gt;Customize the slide style and background&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; slide background-image=&amp;quot;/img/boards.jpg&amp;quot; &amp;gt;}}
+{{&amp;lt; slide background-color=&amp;quot;#0000FF&amp;quot; &amp;gt;}}
+{{&amp;lt; slide class=&amp;quot;my-style&amp;quot; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  color: navy;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Analysis of Private ML Models</title>
+      <link>https://bargavjayaraman.github.io/project/evaluating-dpml/</link>
+      <pubDate>Wed, 22 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/project/evaluating-dpml/</guid>
+      <description>&lt;p&gt;Machine learning models are being extensively trained on sensitive human data (such as pictures, videos and patient health records) and are being publicly deployed as a service. With such systems in  place, privacy of the individuals involved in the model training becomes a real concern. While differential privacy provides a solution to this problem, there is always a privacy-utility trade-off when training models privately, which is not well understood. Often the practical deployments choose the model utility over privacy, that may lead to indiscernable privacy vulnerabilities. One such example of privacy vulnerability is whether an adversary can identify a particular individual in the training data. Also, what type of individuals are more vulnerable to such attacks? This question is also directly related to the problem of fairness. In light of such vulnerabilities, what privacy parameters should the ML deployments use to mitigate the risks? Our project tries to shed light on these questions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting Vague Words and Phrases in Requirements Documents in a Multilingual Environment</title>
+      <link>https://bargavjayaraman.github.io/publication/vagueness/</link>
+      <pubDate>Sun, 10 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/vagueness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decentralized Certificate Authorities</title>
+      <link>https://bargavjayaraman.github.io/publication/dca/</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/dca/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decentralized Certificate Authorities</title>
+      <link>https://bargavjayaraman.github.io/project/dca/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/project/dca/</guid>
+      <description>&lt;p&gt;Certificate authorities have a single point of failure in signing the digital certificates &amp;ndash; what if their signing key gets stolen? This is possible if the signing key is stored on a single machine. Instead, we propose secret sharing of signing keys across multiple machines such that the certificate authorites can combine the secret shares within the multi-party computation protocol and sign the digital certificate in an encrypted way.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aggregating Private Sparse Learning Models Using Multi-Party Computation</title>
+      <link>https://bargavjayaraman.github.io/publication/model-aggregation/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/model-aggregation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Privacy Preserving Machine Learning</title>
+      <link>https://bargavjayaraman.github.io/project/ppml/</link>
+      <pubDate>Sat, 03 Sep 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/project/ppml/</guid>
+      <description>&lt;p&gt;Multi-party computation protocols provide computational security to both data and model through encrypted computations. Differential privacy, on the other hand, provides information theoretic privacy by perturbing the computations with noise. These techniques consider a different threat model and have orthogonal goals. In this project, we combine both technuqies to achieve strong security and privacy for machine learning on sensitive data.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Privacy Preserving String Matching for Cloud Computing</title>
+      <link>https://bargavjayaraman.github.io/publication/searchable-encryption/</link>
+      <pubDate>Mon, 29 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/searchable-encryption/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/tags/</link>
+    <description>Recent content in Tags on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Source Themes</title>
+      <link>https://bargavjayaraman.github.io/tags/source-themes/</link>
+      <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/tags/source-themes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Differential Privacy</title>
+      <link>https://bargavjayaraman.github.io/tags/differential-privacy/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/tags/differential-privacy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://bargavjayaraman.github.io/tags/machine-learning/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Certificate Authority</title>
+      <link>https://bargavjayaraman.github.io/tags/certificate-authority/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/tags/certificate-authority/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multi-Party Computation</title>
+      <link>https://bargavjayaraman.github.io/tags/multi-party-computation/</link>
+      <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/tags/multi-party-computation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

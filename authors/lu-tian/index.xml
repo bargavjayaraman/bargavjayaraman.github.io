@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lu Tian on Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/authors/lu-tian/</link>
+    <description>Recent content in Lu Tian on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/authors/lu-tian/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aggregating Private Sparse Learning Models Using Multi-Party Computation</title>
+      <link>https://bargavjayaraman.github.io/publication/model-aggregation/</link>
+      <pubDate>Sun, 04 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/model-aggregation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
