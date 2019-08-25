@@ -35,6 +35,48 @@
     </item>
     
     <item>
+      <title>Evaluating differentially private machine learning in practice</title>
+      <link>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</link>
+      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</guid>
+      <description>
+
+&lt;p&gt;In the previous post, we discussed a motivational scenario about why we need to check for privacy vulnerability of differentially private machine learning models. In this post, we will quantify this privacy vulnerability in terms of leakage of membership information through experimental evaluation on &lt;a href=&#34;https://www.cs.toronto.edu/~kriz/cifar.html&#34; target=&#34;_blank&#34;&gt;CIFAR-100&lt;/a&gt; data set. This work has been accepted at &lt;a href=&#34;https://www.usenix.org/conference/usenixsecurity19&#34; target=&#34;_blank&#34;&gt;USENIX Security&amp;rsquo;19&lt;/a&gt; and the full manuscript can be found &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;brief-introduction-of-evaluation-procedure&#34;&gt;Brief introduction of evaluation procedure&lt;/h2&gt;
+
+&lt;p&gt;We train logistic regression and two-layer neural network models with differential privacy over 10,000 training instances, and separate 10,000 instances are used for testing.  Comparison of model utility and privacy leakage is made for various differential privacy approaches that differ in the composition of privacy budget. These are namely, na&amp;#x00EF;ve composition (NC), advanced composition (AC), zero concentrated differential privacy (zCDP) and R&amp;#x00E8;nyi differential privacy (RDP). RDP and zCDP have stricter composition property which allows them to add much less noise in comparison to NC for a given privacy budget. Thus, they achieve better model utility but at the cost of privacy leakage, which we show in our experimental results. We calculate the model utility as accuracy loss relative to a non-private baseline model. For privacy leakage, we evaluate the advantage of membership inference attacker, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. We implement the membership inference attacks of &lt;a href=&#34;https://ieeexplore.ieee.org/document/7958568&#34; target=&#34;_blank&#34;&gt;Shokri et al.&lt;/a&gt; and &lt;a href=&#34;https://ieeexplore.ieee.org/document/8429311&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt; for this purpose.&lt;/p&gt;
+
+&lt;p&gt;For brevity, we stick to the results of Yeom et al. membership inference attack on neural network s trained with NC and RDP in this post. Interested readers are referred to the &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;full paper&lt;/a&gt; for a discussion on other experimental results.&lt;/p&gt;
+
+&lt;h2 id=&#34;experimental-observations&#34;&gt;Experimental observations&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;utility-privacy plot of NC and RDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;how many members being revealed&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;leakage is amplified across intersection of multiple runs&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what-s-more-in-the-paper&#34;&gt;What&amp;rsquo;s more in the paper&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;results on Purchase-100 data set&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;logistic regression results&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;membership inference attack of shokri et al.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;attribute inference attack of yeom et al.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Why you should evaluate your private model</title>
       <link>https://bargavjayaraman.github.io/post/evaluating-dpml-intro/</link>
       <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
