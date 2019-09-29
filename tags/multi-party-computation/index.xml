@@ -6,10 +6,24 @@
     <description>Recent content in Multi-Party Computation on Bargav Jayaraman</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://bargavjayaraman.github.io/tags/multi-party-computation/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Distributed Learning without Distress: Privacy-Preserving Empirical Risk Minimization</title>
+      <link>https://bargavjayaraman.github.io/publication/dp-erm/</link>
+      <pubDate>Sun, 14 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/dp-erm/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/rwyWiDyVmjE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>Decentralized Certificate Authorities</title>

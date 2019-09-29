@@ -42,8 +42,20 @@
   </url>
   
   <url>
+    <loc>https://bargavjayaraman.github.io/tags/differential-privacy/</loc>
+    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://bargavjayaraman.github.io/publication/evaluating-dpml/</loc>
     <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
+    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -55,12 +67,6 @@
   <url>
     <loc>https://bargavjayaraman.github.io/publication/</loc>
     <lastmod>2019-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/source-themes/</loc>
-    <lastmod>2019-08-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -81,13 +87,13 @@
   </url>
   
   <url>
-    <loc>https://bargavjayaraman.github.io/authors/quanquan-gu/</loc>
+    <loc>https://bargavjayaraman.github.io/tags/multi-party-computation/</loc>
     <lastmod>2019-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://bargavjayaraman.github.io/tags/differential-privacy/</loc>
+    <loc>https://bargavjayaraman.github.io/authors/quanquan-gu/</loc>
     <lastmod>2019-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -95,12 +101,6 @@
   <url>
     <loc>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</loc>
     <lastmod>2019-07-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
-    <lastmod>2019-07-14T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -159,6 +159,12 @@
   </url>
   
   <url>
+    <loc>https://bargavjayaraman.github.io/tags/source-themes/</loc>
+    <lastmod>2017-09-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://bargavjayaraman.github.io/publication_types/3/</loc>
     <lastmod>2017-06-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -178,12 +184,6 @@
   <url>
     <loc>https://bargavjayaraman.github.io/project/dca/</loc>
     <lastmod>2017-03-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/multi-party-computation/</loc>
-    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
