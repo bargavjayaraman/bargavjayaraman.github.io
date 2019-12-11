@@ -36,6 +36,80 @@
     </item>
     
     <item>
+      <title>Xbox One X HDD Loading Test</title>
+      <link>https://bargavjayaraman.github.io/post/xbox_one_x_hdd_loading_test/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/xbox_one_x_hdd_loading_test/</guid>
+      <description>
+
+&lt;p&gt;With the advent of 4K UHD and HDR games, it is not uncommon nowadays that your Xbox One X stock HDD of 1 TB gets filled quickly with just a handful of games. And my case is no different, within one year of purchasing the console, I already ran out of hard disk space. So I did what any gamer would do in my situation; I ordered a &lt;a href=&#34;https://www.bestbuy.com/site/seagate-expansion-4tb-external-usb-3-0-portable-hard-drive-black/4820200.p?skuId=4820200&#34; target=&#34;_blank&#34;&gt;4TB external hard drive&lt;/a&gt; [Yay!]. Now that I planned to transfer some games from my internal HDD to the external HDD, curiosity plagued the researcher in me! Is the internal HDD faster at loading games than the external HDD? Or is it the other way around? Both schools of thoughts have their own reasoning. On one hand internal HDD is, well, internal. It uses &lt;a href=&#34;https://en.wikipedia.org/wiki/Serial_ATA&#34; target=&#34;_blank&#34;&gt;SATA 3&lt;/a&gt; connection supporting upto 600 MB/s of bandwidth. On the other hand, external HDD uses &lt;a href=&#34;https://en.wikipedia.org/wiki/USB_3.0&#34; target=&#34;_blank&#34;&gt;USB 3.0&lt;/a&gt; connection supporting upto 625 MB/s of bandwidth. Both the hard drives have rotation speed of 5400 RPM, so it is still an apple to apple comparison.&lt;/p&gt;
+
+&lt;p&gt;Note that this idea of comparing the loading speeds of internal and external HDDs is not novel. There are already many videos and blogs on this topic - be it for computers or consoles. What&amp;rsquo;s new in this blog is to evaluate this in a [&lt;em&gt;cough&lt;/em&gt;] scientific way - using hypothesis testing. Let&amp;rsquo;s get into a [somewhat] scientific evaluation!&lt;/p&gt;
+
+&lt;h2 id=&#34;hypothesis-testing-on-game-loading-task&#34;&gt;Hypothesis testing on game loading task&lt;/h2&gt;
+
+&lt;p&gt;Game loading time is measured (in &lt;em&gt;mm:ss&lt;/em&gt;) as the time taken to launch the game - from clicking on the game till the point where the player gets the control of the playable character, as shown in this &lt;a href=&#34;https://www.youtube.com/watch?v=MQ_pDLMI650&#34; target=&#34;_blank&#34;&gt;video&lt;/a&gt;. I recorded the loading time for 10 AAA title games, with the exception of Forza Motorsport 7, where I recorded till the point where the main menu appears. Launching a race involves lot of manual selection process, which could add more variability in recording time.&lt;/p&gt;
+
+&lt;p&gt;The null hypothesis is $H_0:$ &lt;em&gt;&amp;ldquo;game loading time of internal HDD is same as that of external HDD&amp;rdquo;&lt;/em&gt;, and the alternate hypothesis is $H_a:$ &lt;em&gt;&amp;ldquo;game loading time of internal HDD is not same as that of external HDD&amp;rdquo;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;experimental-observations&#34;&gt;Experimental observations&lt;/h2&gt;
+
+&lt;p&gt;The game loading times are reported in the table below.
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Game Title&lt;/th&gt; &lt;th&gt;Internal HDD Time &lt;br&gt;(&lt;i&gt;mm:ss&lt;/i&gt;)&lt;/th&gt; &lt;th&gt;External HDD Time &lt;br&gt;(&lt;i&gt;mm:ss&lt;/i&gt;)&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Assassin&amp;rsquo;s Creed Origins&lt;/td&gt; &lt;td&gt;01:48.50&lt;/td&gt; &lt;td&gt;01:51.05&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Tomb Raider&lt;/td&gt; &lt;td&gt;00:50.95&lt;/td&gt; &lt;td&gt;00:41.78&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Rise of Tomb Raider&lt;/td&gt; &lt;td&gt;02:32.14&lt;/td&gt; &lt;td&gt;02:15.54&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Shadow of Tomb Raider&lt;/td&gt; &lt;td&gt;01:36.63&lt;/td&gt; &lt;td&gt;01:24.30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Halo Master Chief Collection&lt;/td&gt; &lt;td&gt;00:57.29&lt;/td&gt; &lt;td&gt;00:46.89&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Batman: Arkham Assylum&lt;/td&gt; &lt;td&gt;01:09.88&lt;/td&gt; &lt;td&gt;01:03.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Batman: Arkham City&lt;/td&gt; &lt;td&gt;01:13.94&lt;/td&gt; &lt;td&gt;01:12.30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Batman: Arkham Knight&lt;/td&gt; &lt;td&gt;01:39.64&lt;/td&gt; &lt;td&gt;01:36.14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Forza Horizon 4&lt;/td&gt; &lt;td&gt;02:33.74&lt;/td&gt; &lt;td&gt;02:04.31&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Forza Motorsport 7&lt;/td&gt; &lt;td&gt;01:00.00&lt;/td&gt; &lt;td&gt;00:50.69&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;Since there is a one-to-one correspondence of each game, we can use &lt;a href=&#34;https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/t-test/&#34; target=&#34;_blank&#34;&gt;paired sample T-test&lt;/a&gt;.
+We can calculate the $t$-value for the paired sample T-test using a simple formula:&lt;/p&gt;
+
+&lt;p&gt;$t-value = \frac{D_1 / N}{\sqrt{\frac{D_2 - D_1^2 / N}{N(N-1)}}}$&lt;/p&gt;
+
+&lt;p&gt;Where $N$ is the total number of games ($N = 10$), $D_1$ is the total difference between loading times of internal and external HDDs ($D_1 = 96.71$) and $D_2$ is the total squared difference between loading times of internal and external HDDs ($D_2 = 1641.4153$). The calculated $t$-value comes out to be 3.4526 which is greater than the threshold $t$-value of 3.250 for a significance threshold of 0.005. Hence we can reject the null hypothesis $H_0$ with 99.5% confidence and conclude that [&lt;em&gt;my&lt;/em&gt;] external HDD is faster than the internal HDD of [&lt;em&gt;my&lt;/em&gt;] Xbox One X.&lt;/p&gt;
+
+&lt;h2 id=&#34;disclaimer-on-the-validity-of-results&#34;&gt;Disclaimer on the validity of results&lt;/h2&gt;
+
+&lt;p&gt;The above results are for a single loading of each game, and the loading time might vary by a few seconds across multiple runs. Ideally, average loading time should be used for such experiments. However, it should be noted that if the same game is loaded multiple times, the consequent loading will be faster due to &lt;em&gt;memory caching&lt;/em&gt;. To avoid caching, games should be loaded in an alternative fashion. Finally, it is important to put a disclaimer that the reported results are for my hardware, and these results &lt;em&gt;might&lt;/em&gt; vary for others. So take it with a grain of salt! :P&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Keeping the above disclaimer in mind, I conclude that my external HDD loads games faster than the stock HDD of my Xbox One X. This benefit might be attributed to the extra 25 MB/s bandwidth of USB 3.0 interface used by the external HDD.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Evaluating Differentially Private Machine Learning in Practice</title>
       <link>https://bargavjayaraman.github.io/publication/evaluating-dpml/</link>
       <pubDate>Wed, 14 Aug 2019 00:00:00 +0000</pubDate>
@@ -60,48 +134,6 @@
   &lt;iframe src=&#34;//www.youtube.com/embed/rwyWiDyVmjE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 
-</description>
-    </item>
-    
-    <item>
-      <title>Evaluating differentially private machine learning in practice</title>
-      <link>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</link>
-      <pubDate>Mon, 08 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</guid>
-      <description>
-
-&lt;p&gt;In the previous post, we discussed a motivational scenario about why we need to check for privacy vulnerability of differentially private machine learning models. In this post, we will quantify this privacy vulnerability in terms of leakage of membership information through experimental evaluation on &lt;a href=&#34;https://www.cs.toronto.edu/~kriz/cifar.html&#34; target=&#34;_blank&#34;&gt;CIFAR-100&lt;/a&gt; data set. This work has been accepted at &lt;a href=&#34;https://www.usenix.org/conference/usenixsecurity19&#34; target=&#34;_blank&#34;&gt;USENIX Security&amp;rsquo;19&lt;/a&gt; and the full manuscript can be found &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;brief-introduction-of-evaluation-procedure&#34;&gt;Brief introduction of evaluation procedure&lt;/h2&gt;
-
-&lt;p&gt;We train logistic regression and two-layer neural network models with differential privacy over 10,000 training instances, and separate 10,000 instances are used for testing.  Comparison of model utility and privacy leakage is made for various differential privacy approaches that differ in the composition of privacy budget. These are namely, na&amp;#x00EF;ve composition (NC), advanced composition (AC), zero concentrated differential privacy (zCDP) and R&amp;#x00E8;nyi differential privacy (RDP). RDP and zCDP have stricter composition property which allows them to add much less noise in comparison to NC for a given privacy budget. Thus, they achieve better model utility but at the cost of privacy leakage, which we show in our experimental results. We calculate the model utility as accuracy loss relative to a non-private baseline model. For privacy leakage, we evaluate the advantage of membership inference attacker, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. We implement the membership inference attacks of &lt;a href=&#34;https://ieeexplore.ieee.org/document/7958568&#34; target=&#34;_blank&#34;&gt;Shokri et al.&lt;/a&gt; and &lt;a href=&#34;https://ieeexplore.ieee.org/document/8429311&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt; for this purpose.&lt;/p&gt;
-
-&lt;p&gt;For brevity, we stick to the results of Yeom et al. membership inference attack on neural network s trained with NC and RDP in this post. Interested readers are referred to the &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;full paper&lt;/a&gt; for a discussion on other experimental results.&lt;/p&gt;
-
-&lt;h2 id=&#34;experimental-observations&#34;&gt;Experimental observations&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;utility-privacy plot of NC and RDP&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;how many members being revealed&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;leakage is amplified across intersection of multiple runs&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;what-s-more-in-the-paper&#34;&gt;What&amp;rsquo;s more in the paper&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;results on Purchase-100 data set&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;logistic regression results&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;membership inference attack of shokri et al.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;attribute inference attack of yeom et al.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 </description>
     </item>
     
