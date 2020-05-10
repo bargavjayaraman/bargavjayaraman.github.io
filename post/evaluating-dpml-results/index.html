@@ -111,7 +111,7 @@
   
   <meta property="og:site_name" content="Bargav Jayaraman">
   <meta property="og:url" content="https://bargavjayaraman.github.io/post/evaluating-dpml-results/">
-  <meta property="og:title" content="Evaluating differentially private machine learning in practice | Bargav Jayaraman">
+  <meta property="og:title" content="Evaluating Differentially Private Machine Learning in Practice | Bargav Jayaraman">
   <meta property="og:description" content="What seems safe, might not be safe in practice."><meta property="og:image" content="https://bargavjayaraman.github.io/img/icon-192.png">
   <meta property="twitter:image" content="https://bargavjayaraman.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
@@ -129,7 +129,7 @@
 
 
 
-  <title>Evaluating differentially private machine learning in practice | Bargav Jayaraman</title>
+  <title>Evaluating Differentially Private Machine Learning in Practice | Bargav Jayaraman</title>
 
 </head>
 
@@ -375,7 +375,7 @@
   
   
 <div class="article-container pt-3">
-  <h1 itemprop="name">Evaluating differentially private machine learning in practice</h1>
+  <h1 itemprop="name">Evaluating Differentially Private Machine Learning in Practice</h1>
 
   
 
@@ -421,7 +421,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    4 min read
   </span>
   
 
@@ -444,7 +444,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;text=Evaluating%20differentially%20private%20machine%20learning%20in%20practice" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;text=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -457,7 +457,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;t=Evaluating%20differentially%20private%20machine%20learning%20in%20practice" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;t=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </li>
@@ -470,7 +470,7 @@
       
       
       <li>
-        <a href="mailto:?subject=Evaluating%20differentially%20private%20machine%20learning%20in%20practice&amp;body=https://bargavjayaraman.github.io/post/evaluating-dpml-results/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice&amp;body=https://bargavjayaraman.github.io/post/evaluating-dpml-results/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -483,7 +483,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;title=Evaluating%20differentially%20private%20machine%20learning%20in%20practice" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;title=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -496,7 +496,7 @@
       
       
       <li>
-        <a href="https://web.whatsapp.com/send?text=Evaluating%20differentially%20private%20machine%20learning%20in%20practice%20https://bargavjayaraman.github.io/post/evaluating-dpml-results/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="https://web.whatsapp.com/send?text=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice%20https://bargavjayaraman.github.io/post/evaluating-dpml-results/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -509,7 +509,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;title=Evaluating%20differentially%20private%20machine%20learning%20in%20practice" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://bargavjayaraman.github.io/post/evaluating-dpml-results/&amp;title=Evaluating%20Differentially%20Private%20Machine%20Learning%20in%20Practice" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -586,37 +586,85 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<p>In the previous post, we discussed a motivational scenario about why we need to check for privacy vulnerability of differentially private machine learning models. In this post, we will quantify this privacy vulnerability in terms of leakage of membership information through experimental evaluation on <a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank">CIFAR-100</a> data set. This work has been accepted at <a href="https://www.usenix.org/conference/usenixsecurity19" target="_blank">USENIX Security&rsquo;19</a> and the full manuscript can be found <a href="https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf" target="_blank">here</a>.</p>
+<p>With the recent advancements in composition of differential private mechanisms, the research community has been able to achieve meaningful deep learning with privacy budgets in single digits<sup><a href="#myfootnote1">1</a></sup>. The present notions of R&#x00E8;nyi differential privacy (RDP) and Gaussian differential privacy (GDP)<sup><a href="#myfootnote2">2</a></sup> are considered state-of-the-art for providing tight composition. But the central question that remains to be answered is: how private are these methods in practice? In this blog post, we answer this question by empirically evaluating the privacy leakage of differential private neural networks via membership inference attacks. This work appeared in <a href="https://www.usenix.org/conference/usenixsecurity19" target="_blank">USENIX Security&rsquo;19</a> (full manuscript can be found <a href="https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf" target="_blank">here</a>).</p>
 
-<h2 id="brief-introduction-of-evaluation-procedure">Brief introduction of evaluation procedure</h2>
+<h2 id="differential-private-training">Differential private training</h2>
 
-<p>We train logistic regression and two-layer neural network models with differential privacy over 10,000 training instances, and separate 10,000 instances are used for testing.  Comparison of model utility and privacy leakage is made for various differential privacy approaches that differ in the composition of privacy budget. These are namely, na&#x00EF;ve composition (NC), advanced composition (AC), zero concentrated differential privacy (zCDP) and R&#x00E8;nyi differential privacy (RDP). RDP and zCDP have stricter composition property which allows them to add much less noise in comparison to NC for a given privacy budget. Thus, they achieve better model utility but at the cost of privacy leakage, which we show in our experimental results. We calculate the model utility as accuracy loss relative to a non-private baseline model. For privacy leakage, we evaluate the advantage of membership inference attacker, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. We implement the membership inference attacks of <a href="https://ieeexplore.ieee.org/document/7958568" target="_blank">Shokri et al.</a> and <a href="https://ieeexplore.ieee.org/document/8429311" target="_blank">Yeom et al</a> for this purpose.</p>
+<p>We train two-layer neural network models using a training procedure similar to the popular <a href="https://dl.acm.org/doi/pdf/10.1145/2976749.2978318" target="_blank">DPSGD</a> procedure. The training and test sets consist of seperate 10,000 instances randomly sampled from the <a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank">CIFAR-100</a> data set.</p>
 
-<p>For brevity, we stick to the results of Yeom et al. membership inference attack on neural network s trained with NC and RDP in this post. Interested readers are referred to the <a href="https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf" target="_blank">full paper</a> for a discussion on other experimental results.</p>
+<p>Figure below shows the accuracy loss of private models trained with na&#x00EF;ve composition (NC) and R&#x00E8;nyi differential privacy (RDP) with respect to a non-private model. As expected, model trained with RDP achieves much better utility when compared to the model trained with NC. To give a comparison, model trained with RDP achieves 53% accuracy loss at \(\epsilon = 10\), whereas the model trained with NC achieves the same utility at \(\epsilon = 500\). Due to the tighter composition, RDP mechanism adds much lesser noise when compared to NC mechanism for the same privacy budget. This is great, but what about the privacy leakage?
 
-<h2 id="experimental-observations">Experimental observations</h2>
 
-<ul>
-<li><p>utility-privacy plot of NC and RDP</p></li>
 
-<li><p>how many members being revealed</p></li>
 
-<li><p>leakage is amplified across intersection of multiple runs</p></li>
-</ul>
+
+
+<figure>
+
+<img src="img/acc_loss.jpg" >
+
+
+</figure>
+</p>
+
+<h2 id="privacy-comes-at-a-cost">Privacy comes at a cost</h2>
+
+<p>For evaluating the privacy leakage, we implement the membership inference attack of <a href="https://ieeexplore.ieee.org/document/8429311" target="_blank">Yeom et al</a> and use their membership advantage metric, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. This metric lies between 0 and 1, where 0 signifies no privacy leakage. As the figure below depicts, there is a clear trade-off between privacy and utility. While RDP mechanism achieves higher utility, it also suffers from higher privacy leakage. The attack achieves around 0.40 membership advantage score against model trained with RDP at \(\epsilon = 1000\), with a positive predictive value (PPV) of 74%. While this is lesser than the privacy leakage of non-private model (highlighted in the figure below), it is still not an acceptable amount of privacy leakage in practice. On the other hand, the model has almost no utility at lower privacy budgets where the privacy leakage is low.
+
+
+
+
+
+
+<figure>
+
+<img src="img/priv_leak.jpg" >
+
+
+</figure>
+
+A more interesting observation is that we only have tight theoretical worst case guarantees on membership advantage for \(\epsilon &lt; 1\), at which point the models neither have any utility nor have any empirical privacy leakage. While the attacks only give a lower bound on the privacy leakage, the huge gap between the theoretical upper bound and the empirical lower bound suggests that there could be stronger attacks  in practice.</p>
+
+<h2 id="leakage-is-amplified-across-multiple-runs">Leakage is amplified across multiple runs</h2>
+
+<p>While we have shown above that the membership inference attack can be effective against a model trained with RDP at \(\epsilon = 1000\), things get worse when the attacker is allowed to run the attack multiple times. More specifically, the attacker gets more and more confident in predicting the membership of the individual records which are repeatedly identified across multiple runs. As the figure below shows, the attacker can identify almost a quarter of the training records with more than 82% PPV across five runs.
+
+
+
+
+
+
+<figure>
+
+<img src="img/multi_run.jpg" >
+
+
+</figure>
+</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The differential privacy research community has come a long way to realize practical mechanisms for deep learning. However, as shown in our work, we still require significant improvements to achieve meaningful utility for privacy budgets where we have strong theoretical guarantees. Concurrently, the huge gap between the empirical privacy leakage and the theoretical bounds opens the possibility for more powerful inference attacks in practice.</p>
 
 <h2 id="what-s-more-in-the-paper">What&rsquo;s more in the paper</h2>
 
+<p>While we only discussed selected results in this blog post, the <a href="https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf" target="_blank">full paper</a> has more experimental results across different settings as listed below:</p>
+
 <ul>
-<li><p>results on Purchase-100 data set</p></li>
+<li><p>Results on Purchase-100 data set, derived from <a href="https://www.kaggle.com/c/acquire-valued-shoppers-challenge/data" target="_blank">Kaggle</a> website.</p></li>
 
-<li><p>logistic regression results</p></li>
+<li><p>Results for logistic regression model.</p></li>
 
-<li><p>membership inference attack of shokri et al.</p></li>
+<li><p>Membership inference attack of <a href="https://ieeexplore.ieee.org/document/7958568" target="_blank">Shokri et al.</a>.</p></li>
 
-<li><p>attribute inference attack of yeom et al.</p></li>
+<li><p>Attribute inference attack of <a href="https://ieeexplore.ieee.org/document/8429311" target="_blank">Yeom et al</a>.</p></li>
 </ul>
 
-<h2 id="conclusion">Conclusion</h2>
+<hr />
+
+<p><a name="myfootnote1">1</a>: with some caveats such as model pre-training and adding less noise at each private training epoch with early stopping when the privacy budget exceeds the limit.</p>
+
+<p><a name="myfootnote2">2</a>: GDP wasn&rsquo;t published at the time our paper came, and hence we donot consider it in our evaluation.</p>
 
     </div>
 
@@ -778,8 +826,6 @@
         <div class="hr-light"></div>
         <h3>Related</h3>
         <ul>
-          
-          <li><a href="/post/evaluating-dpml-intro/">Why you should evaluate your private model</a></li>
           
           <li><a href="/project/evaluating-dpml/">Analysis of Private ML Models</a></li>
           
