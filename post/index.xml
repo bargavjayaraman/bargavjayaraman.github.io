@@ -93,13 +93,17 @@ We can calculate the $t$-value for the paired sample T-test using a simple formu
       <guid>https://bargavjayaraman.github.io/post/evaluating-dpml-results/</guid>
       <description>
 
-&lt;p&gt;With the recent advancements in composition of differential private mechanisms, the research community has been able to achieve meaningful deep learning with privacy budgets in single digits&lt;sup&gt;&lt;a href=&#34;#myfootnote1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;. The present notions of R&amp;#x00E8;nyi differential privacy (RDP) and Gaussian differential privacy (GDP)&lt;sup&gt;&lt;a href=&#34;#myfootnote2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; are considered state-of-the-art for providing tight composition. But the central question that remains to be answered is: how private are these methods in practice? In this blog post, we answer this question by empirically evaluating the privacy leakage of differential private neural networks via membership inference attacks. This work appeared in &lt;a href=&#34;https://www.usenix.org/conference/usenixsecurity19&#34; target=&#34;_blank&#34;&gt;USENIX Security&amp;rsquo;19&lt;/a&gt; (full manuscript can be found &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;With the recent advances in composition of differential private mechanisms, the research community has been able to achieve meaningful deep learning with privacy budgets in single digits. R&amp;#x00E8;nyi differential privacy (RDP) is one mechanism that provides tighter composition which is widely used because of its implementation in TensorFlow Privacy (recently, Gaussian differential privacy (GDP) has shown a tighter analysis for low privacy budgets, but it was not yet available when we did this work). But the central question that remains to be answered is: &lt;em&gt;how private are these methods in practice?&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;differential-private-training&#34;&gt;Differential private training&lt;/h2&gt;
+&lt;p&gt;In this blog post, we answer this question by empirically evaluating the privacy leakage of differential private neural networks via membership inference attacks. This work appeared in &lt;a href=&#34;https://www.usenix.org/conference/usenixsecurity19&#34; target=&#34;_blank&#34;&gt;USENIX Security&amp;rsquo;19&lt;/a&gt; (full paper: &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;, &lt;a href=&#34;https://www.youtube.com/watch?v=JAGhqbY_U50&#34; target=&#34;_blank&#34;&gt;talk video&lt;/a&gt;).&lt;/p&gt;
 
-&lt;p&gt;We train two-layer neural network models using a training procedure similar to the popular &lt;a href=&#34;https://dl.acm.org/doi/pdf/10.1145/2976749.2978318&#34; target=&#34;_blank&#34;&gt;DPSGD&lt;/a&gt; procedure. The training and test sets consist of seperate 10,000 instances randomly sampled from the &lt;a href=&#34;https://www.cs.toronto.edu/~kriz/cifar.html&#34; target=&#34;_blank&#34;&gt;CIFAR-100&lt;/a&gt; data set.&lt;/p&gt;
+&lt;h2 id=&#34;training-differentially-private-models&#34;&gt;Training Differentially Private Models&lt;/h2&gt;
 
-&lt;p&gt;Figure below shows the accuracy loss of private models trained with na&amp;#x00EF;ve composition (NC) and R&amp;#x00E8;nyi differential privacy (RDP) with respect to a non-private model. As expected, model trained with RDP achieves much better utility when compared to the model trained with NC. To give a comparison, model trained with RDP achieves 53% accuracy loss at \(\epsilon = 10\), whereas the model trained with NC achieves the same utility at \(\epsilon = 500\). Due to the tighter composition, RDP mechanism adds much lesser noise when compared to NC mechanism for the same privacy budget. This is great, but what about the privacy leakage?
+&lt;p&gt;We train two-layer neural network models using a training procedure similar to the popular &lt;a href=&#34;https://arxiv.org/pdf/1607.00133.pdf&#34; target=&#34;_blank&#34;&gt;DPSGD&lt;/a&gt; procedure. The training and test sets consist of seperate 10,000 instances randomly sampled from the &lt;a href=&#34;https://www.cs.toronto.edu/~kriz/cifar.html&#34; target=&#34;_blank&#34;&gt;CIFAR-100&lt;/a&gt; data set.&lt;/p&gt;
+
+&lt;p&gt;The figure below shows the accuracy loss of private models trained with na&amp;#x00EF;ve composition (NC) and R&amp;#x00E8;nyi differential privacy (RDP) with respect to a non-private model. As expected, models trained with RDP achieve much better utility when compared to the models trained with NC. To give a comparison, models trained with RDP achieve 53% accuracy loss at \(\epsilon = 10\), whereas the models trained with NC achieve the same utility at \(\epsilon = 500\). Due to the tighter composition, RDP mechanism adds much lesser noise when compared to NC mechanism for the same privacy budget.&lt;/p&gt;
+
+&lt;p&gt;This is great, but what about the privacy leakage?
 
 
 
@@ -116,7 +120,9 @@ We can calculate the $t$-value for the paired sample T-test using a simple formu
 
 &lt;h2 id=&#34;privacy-comes-at-a-cost&#34;&gt;Privacy comes at a cost&lt;/h2&gt;
 
-&lt;p&gt;For evaluating the privacy leakage, we implement the membership inference attack of &lt;a href=&#34;https://ieeexplore.ieee.org/document/8429311&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt; and use their membership advantage metric, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. This metric lies between 0 and 1, where 0 signifies no privacy leakage. As the figure below depicts, there is a clear trade-off between privacy and utility. While RDP mechanism achieves higher utility, it also suffers from higher privacy leakage. The attack achieves around 0.40 membership advantage score against model trained with RDP at \(\epsilon = 1000\), with a positive predictive value (PPV) of 74%. While this is lesser than the privacy leakage of non-private model (highlighted in the figure below), it is still not an acceptable amount of privacy leakage in practice. On the other hand, the model has almost no utility at lower privacy budgets where the privacy leakage is low.
+&lt;p&gt;To estimate privacy leakage, we implement the membership inference attack of &lt;a href=&#34;https://arxiv.org/pdf/1709.01604.pdf&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt; and use their membership advantage metric, which is given as the difference between true positive rate (TPR) and false positive rate (FPR) of detecting whether a given instance is a part of the training set. This metric lies between 0 and 1, where 0 signifies no privacy leakage.&lt;/p&gt;
+
+&lt;p&gt;As the figure below depicts, there is a clear trade-off between privacy and utility. While the RDP mechanism achieves higher utility, it also suffers from higher privacy leakage. The attack achieves around 0.40 membership advantage score against model trained with RDP at \(\epsilon = 1000\), with a positive predictive value (PPV) of 74%. While this is less than the privacy leakage of non-private model (highlighted in the figure below), it is a significant amount of leakage. On the other hand, the model has almost no utility at lower privacy budgets where the privacy leakage is low.
 
 
 
@@ -132,9 +138,9 @@ We can calculate the $t$-value for the paired sample T-test using a simple formu
 
 A more interesting observation is that we only have tight theoretical worst case guarantees on membership advantage for \(\epsilon &amp;lt; 1\), at which point the models neither have any utility nor have any empirical privacy leakage. While the attacks only give a lower bound on the privacy leakage, the huge gap between the theoretical upper bound and the empirical lower bound suggests that there could be stronger attacks  in practice.&lt;/p&gt;
 
-&lt;h2 id=&#34;leakage-is-amplified-across-multiple-runs&#34;&gt;Leakage is amplified across multiple runs&lt;/h2&gt;
+&lt;h2 id=&#34;leakage-is-not-random&#34;&gt;Leakage is not random&lt;/h2&gt;
 
-&lt;p&gt;While we have shown above that the membership inference attack can be effective against a model trained with RDP at \(\epsilon = 1000\), things get worse when the attacker is allowed to run the attack multiple times. More specifically, the attacker gets more and more confident in predicting the membership of the individual records which are repeatedly identified across multiple runs. As the figure below shows, the attacker can identify almost a quarter of the training records with more than 82% PPV across five runs.
+&lt;p&gt;We have shown above that the membership inference attack can be effective against a model trained with RDP at \(\epsilon = 1000\). The members identified by the attacker are not due to the randomness in machine learning process. To show this, we run run the above experiment multiple times and note the fraction of members that are repeatedly identified across different runs. The figure below shows the results. The attacker is able to identify almost a quarter of the training records with more than 82% PPV across five runs. If the leakage was due to the randomness, we would have expected a trend similar to the dotted line.
 
 
 
@@ -151,9 +157,9 @@ A more interesting observation is that we only have tight theoretical worst case
 
 &lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;The differential privacy research community has come a long way to realize practical mechanisms for deep learning. However, as shown in our work, we still require significant improvements to achieve meaningful utility for privacy budgets where we have strong theoretical guarantees. Concurrently, the huge gap between the empirical privacy leakage and the theoretical bounds opens the possibility for more powerful inference attacks in practice.&lt;/p&gt;
+&lt;p&gt;The differential privacy research community has come a long way to realize practical mechanisms for privacy-preserving deep learning. However, as shown in our work, we still require significant improvements to achieve meaningful utility for privacy budgets where we have strong theoretical guarantees. Concurrently, the huge gap between the empirical privacy leakage and the theoretical bounds opens the possibility for more powerful inference attacks in practice.&lt;/p&gt;
 
-&lt;h2 id=&#34;what-s-more-in-the-paper&#34;&gt;What&amp;rsquo;s more in the paper&lt;/h2&gt;
+&lt;h2 id=&#34;additional-results-in-the-paper&#34;&gt;Additional Results in the Paper&lt;/h2&gt;
 
 &lt;p&gt;While we only discussed selected results in this blog post, the &lt;a href=&#34;https://www.cs.virginia.edu/~evans/pubs/usenix2019/evaluatingdp.pdf&#34; target=&#34;_blank&#34;&gt;full paper&lt;/a&gt; has more experimental results across different settings as listed below:&lt;/p&gt;
 
@@ -162,16 +168,10 @@ A more interesting observation is that we only have tight theoretical worst case
 
 &lt;li&gt;&lt;p&gt;Results for logistic regression model.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Membership inference attack of &lt;a href=&#34;https://ieeexplore.ieee.org/document/7958568&#34; target=&#34;_blank&#34;&gt;Shokri et al.&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Membership inference attack of &lt;a href=&#34;https://arxiv.org/pdf/1610.05820.pdf&#34; target=&#34;_blank&#34;&gt;Shokri et al.&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Attribute inference attack of &lt;a href=&#34;https://ieeexplore.ieee.org/document/8429311&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Attribute inference attack of &lt;a href=&#34;https://arxiv.org/pdf/1709.01604.pdf&#34; target=&#34;_blank&#34;&gt;Yeom et al&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;a name=&#34;myfootnote1&#34;&gt;1&lt;/a&gt;: with some caveats such as model pre-training and adding less noise at each private training epoch with early stopping when the privacy budget exceeds the limit.&lt;/p&gt;
-
-&lt;p&gt;&lt;a name=&#34;myfootnote2&#34;&gt;2&lt;/a&gt;: GDP wasn&amp;rsquo;t published at the time our paper came, and hence we donot consider it in our evaluation.&lt;/p&gt;
 </description>
     </item>
     
