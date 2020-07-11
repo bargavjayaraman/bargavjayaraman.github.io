@@ -6,10 +6,28 @@
     <description>Recent content in Lingxiao Wang on Bargav Jayaraman</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://bargavjayaraman.github.io/authors/lingxiao-wang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Revisiting Membership Inference Under Realistic Assumptions</title>
+      <link>https://bargavjayaraman.github.io/publication/revisiting-mi/</link>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/revisiting-mi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Efficient Privacy-Preserving Nonconvex Optimization</title>
+      <link>https://bargavjayaraman.github.io/publication/nonconvex-optimization/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/nonconvex-optimization/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Distributed Learning without Distress: Privacy-Preserving Empirical Risk Minimization</title>

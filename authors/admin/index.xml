@@ -6,10 +6,19 @@
     <description>Recent content on Bargav Jayaraman</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2020 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://bargavjayaraman.github.io/authors/admin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Revisiting Membership Inference Under Realistic Assumptions</title>
+      <link>https://bargavjayaraman.github.io/publication/revisiting-mi/</link>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/revisiting-mi/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Xbox One X HDD Loading Test</title>
@@ -83,6 +92,15 @@ We can calculate the $t$-value for the paired sample T-test using a simple formu
 
 &lt;p&gt;Keeping the above disclaimer in mind, I conclude that my external HDD loads games faster than the stock HDD of my Xbox One X. This benefit might be attributed to the extra 25 MB/s bandwidth of USB 3.0 interface used by the external HDD.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Efficient Privacy-Preserving Nonconvex Optimization</title>
+      <link>https://bargavjayaraman.github.io/publication/nonconvex-optimization/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/nonconvex-optimization/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -242,7 +260,7 @@ A more interesting observation is that we only have tight theoretical worst case
     <item>
       <title></title>
       <link>https://bargavjayaraman.github.io/authors/admin/</link>
-      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://bargavjayaraman.github.io/authors/admin/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m currently doing PhD in Computer Science at School of Engineering and Applied Science, University of Virginia. I am advised by &lt;a href=&#34;https://www.cs.virginia.edu/~evans/&#34; target=&#34;_blank&#34;&gt;Professor David Evans&lt;/a&gt; and my area of research is broadly in &lt;a href=&#34;https://oblivc.org/ppml/&#34; target=&#34;_blank&#34;&gt;Privacy Preserving Machine Learning&lt;/a&gt;.&lt;/p&gt;
