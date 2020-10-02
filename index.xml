@@ -36,6 +36,140 @@
     </item>
     
     <item>
+      <title>Merlin, Morgan, and the Importance of Thresholds and Priors</title>
+      <link>https://bargavjayaraman.github.io/post/revisiting-mi/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/revisiting-mi/</guid>
+      <description>
+
+&lt;p&gt;Machine learning poses a substantial risk that adversaries will be able to discover information that the model does not intend to reveal. One set of methods by which consumers can learn this sensitive information, known broadly as &lt;em&gt;membership inference&lt;/em&gt; attacks, predicts whether or not a query record belongs to the training set. A basic membership inference attack involves an attacker with a given record and black-box access to a model who tries to determine whether
+said record was a member of the model&amp;rsquo;s training set.&lt;/p&gt;
+
+&lt;p&gt;Unlike much of the existing research on the membership inference, though, these particular results focus on what are considered &amp;ldquo;realistic assumptions,&amp;rdquo; including conditions with skewed priors (wherein members only make up a small fraction of the candidate pool) and conditions with adversaries that select accuracy-improving inference thresholds based on specific attack goals. These new assumptions help to answer the question of how differential privacy can be implemented to provide meaningful privacy guarantees in practice.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;img/image1.png&#34; width=&#34;80%&#34;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;threshold-selection&#34;&gt;Threshold Selection&lt;/h2&gt;
+
+&lt;p&gt;In order to classify a record as either a member or a non-member,
+there must be a threshold that converts a real number output from a
+test into a Boolean. We develop a procedure to select a threshold,
+&amp;phi;, that allows the adversary to achieve as much privacy leakage as
+possible while staying beneath a maximum false positive rate, &amp;alpha;.&lt;/p&gt;
+
+&lt;p&gt;This selection procedure can be applied to any membership inference
+attack, including Yeom&amp;rsquo;s attack. The original version of this
+attack classifies a record as a member if its per-instance-loss is
+less than the expected training loss, whereas this new approach
+selects members based on a threshold &lt;em&gt;&amp;phi;&lt;/em&gt;, which can be set
+to target a particular false positive rate.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img alt=&#34;&#34; src=&#34;img/image2.png&#34; width=&#34;80%&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-merlin-attack&#34;&gt;The Merlin Attack&lt;/h2&gt;
+
+&lt;p&gt;In addition to this new selection procedure, we introduce a new attack
+known as Merlin, which stands for &lt;b&gt;ME&lt;/b&gt;asuring &lt;b&gt;R&lt;/b&gt;elative &lt;b&gt;L&lt;/b&gt;oss &lt;b&gt;I&lt;/b&gt;n &lt;b&gt;N&lt;/b&gt;eighborhood. Instead of per-instance-loss, this attack uses the
+direction of change of per-instance-loss when the record is slightly
+perturbed with noise. Merlin operates based on the intuition that, as
+a result of overfitting, member records are more likely to be near
+local minima than non-member records. This suggests that for members,
+loss is more likely to increase at perturbed points near the original,
+whereas it is equally likely to increase or decrease for
+non-members. For each record, a small amount of random Gaussian noise
+is added and the change of loss direction is recorded. This process is
+repeated multiple times and Merlin infers membership based on the
+fraction of times the loss increases.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img alt=&#34;&#34; src=&#34;img/image3.png&#34; width=&#34;80%&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-morgan-attack&#34;&gt;The Morgan Attack&lt;/h2&gt;
+
+&lt;p&gt;Since Yeom and Merlin use different information to make their
+membership inferences, they do not always identify the same records as
+members; some members are more vulnerable to one attack than the
+other. Visualizing a combination of the attacks&amp;rsquo; results
+suggests that by eliminating the results with a very low
+per-instance-loss, a combination of the two may produce an improved
+PPV. The intuition here is that extremely low per-instance-losses may
+result in Merlin&amp;rsquo;s identification of a local minimum where there
+is in fact a near global minimum (which is much less strongly
+correlated with membership).&lt;/p&gt;
+
+&lt;p&gt;The Morgan (&lt;b&gt;M&lt;/b&gt;easuring l&lt;b&gt;O&lt;/b&gt;ss, &lt;b&gt;R&lt;/b&gt;elatively
+&lt;B&gt;G&lt;/b&gt;reater &lt;b&gt;A&lt;/b&gt;round &lt;b&gt;N&lt;/b&gt;eighborhood) attack uses three
+different thresholds: a lower threshold on per-instance loss (&lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;L&lt;/em&gt;&lt;/sub&gt;),
+an upper threshold on per-instance loss (&lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;U&lt;/em&gt;&lt;/sub&gt;),
+and a threshold on the ratio as used by Merlin (&lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;M&lt;/em&gt;&lt;/sub&gt;). If a
+record has a per-instance-loss that falls between &lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;L&lt;/em&gt;&lt;/sub&gt; and &lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;U&lt;/em&gt;&lt;/sub&gt;, and has a Merlin ratio of at least &lt;em&gt;&amp;phi;&lt;/em&gt;&lt;sub&gt;&lt;em&gt;M&lt;/em&gt;&lt;/sub&gt;, Morgan identifies it as a member.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img alt=&#34;&#34; src=&#34;img/image4.jpg&#34; width=&#34;50%&#34;&gt;&lt;br&gt;
+&lt;div class=&#34;caption&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;The figure shows the per-instance loss and Merlin ratio for
+Purchase-100X (and expanded version of the Purchase-100 dataset that
+we created for our experiments). Members and nonmembers are denoted
+by orange and purple points respectively. The boxes show the
+thresholds found by the threshold selection process (without access to
+the training data, but with the same data distribution), and
+illustrate the regions where members are identified by Morgan with
+very high confidence (PPV &amp;sim;1). (See &lt;a href=&#34;https://arxiv.org/abs/2005.10881&#34;&gt;paper&lt;/a&gt; for details, and more result.)
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;imbalanced-priors&#34;&gt;Imbalanced Priors&lt;/h2&gt;
+
+&lt;p&gt;Previous work on membership inference attacks assumes a candidate pool
+where half of the candidates are members. For most settings,
+especially ones where there is a serious privacy risk for an
+individual of being identified as a dataset member, this assumption is
+unrealistic. It is important to understand how well inference attacks
+work when the adversary&amp;rsquo;s candidate pool has a different prior
+probability of being amember.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;
+&lt;img alt=&#34;&#34; src=&#34;img/image5.png&#34; width=&#34;60%&#34;&gt;
+&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, the candidate pool from which the attacker attempts to select
+members has &lt;em&gt;&amp;gamma;&lt;/em&gt; times more non-member records than member
+records. As shown above, even in situations that other papers do not
+consider, wherein there are many times more non-members than members,
+attacks are able to attain a high rate of positively-identified
+members.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The Merlin and Morgan attacks can reliably identify members even in
+situations with imbalanced priors where other attacks fail to show
+meaningful inference risk.&lt;/p&gt;
+
+&lt;p&gt;There remains a large gap between what can be guaranteed using
+differential privacy methods, and what can be inferred using known
+inference attacks. This means better inference attacks may exist, and
+our results show that there are concrete ways to improve attacks
+(e.g., our threshold-selection procedure) and to incorporate more
+information to improve attacks. We are especially interested in
+attacks that produce extremely high PPVs, even if this is only for a
+small fraction of candidates, since for most scenarios this is where
+the most serious privacy risks lie.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Full paper:&lt;/strong&gt; Bargav Jayaraman, Lingxiao Wang, Katherine Knipmeyer,
+Quanquan Gu, David Evans. &lt;a href=&#34;https://arxiv.org/abs/2005.10881&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Revisiting Membership Inference Under
+Realistic Assumptions&lt;/em&gt;&lt;/a&gt; (&lt;a href=&#34;https://arxiv.org/abs/2005.10881&#34; target=&#34;_blank&#34;&gt;arXiv&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Code:&lt;/strong&gt; &lt;a href=&#34;https://github.com/bargavj/EvaluatingDPML&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;https://github.com/bargavj/EvaluatingDPML&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Revisiting Membership Inference Under Realistic Assumptions</title>
       <link>https://bargavjayaraman.github.io/publication/revisiting-mi/</link>
       <pubDate>Mon, 11 May 2020 00:00:00 +0000</pubDate>
