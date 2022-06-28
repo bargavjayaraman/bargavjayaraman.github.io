@@ -570,6 +570,8 @@ Training distirbution is a skewed distribution limited to records from most popu
 &lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; Similar to previous case, race&amp;rsquo;s correlation to ethnicity has a huge impact on the inference task.&lt;/p&gt;
 
 &lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+
+&lt;p&gt;In all the above settings, the white-box attacks perform similar on both training and test candidates, unlike the membership inference case where the attacks perform dissimilar across training and test sets.&lt;/p&gt;
 </description>
     </item>
     
