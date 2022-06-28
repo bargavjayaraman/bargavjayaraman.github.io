@@ -36,6 +36,568 @@
     </item>
     
     <item>
+      <title>Defense Against Attribute Inference</title>
+      <link>https://bargavjayaraman.github.io/post/ai_defense_results/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/post/ai_defense_results/</guid>
+      <description>
+
+&lt;h2 id=&#34;jun-27-2022-vanilla-model-training&#34;&gt;[Jun 27, 2022] Vanilla Model Training&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;predicting-hispanic-ethnicity-on-texas-100x-i&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity on Texas-100X (I)&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Threat Setting:&lt;/strong&gt; &lt;br&gt;
+Training distirbution is general data set distribution except the most populous hospitals.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;u&gt;Adversarial Knowledge&lt;/u&gt;:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows a skewed distribution (that has records from hospitals with highest number of patients)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;img/texas-100x.jpg&#34; width=&#34;100%&#34;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;strong&gt;Figure 1:&lt;/strong&gt; Patient records distribution in Texas-100X, sorted with respect to hospital population.&lt;/center&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;model-uses-race-as-a-training-feature&#34;&gt;Model uses &lt;em&gt;race&lt;/em&gt; as a training feature&lt;/h4&gt;
+
+&lt;p&gt;As reported in the paper draft, the model trained on Texas-100X data set uses the race attribute as a feature which could have a positive correlation with the ethnicity attribute. Regardless of this, it is still useful to compare the attribute inference attacks with the imputation (IP) attack in this setting.&lt;/p&gt;
+
+&lt;p&gt;&lt;details&gt;
+    &lt;summary&gt;&lt;strong&gt;Hypothesis:&lt;/strong&gt; Passing WB$\cdot$IP as a feature to WB$\diamondsuit$IP&amp;rsquo;s decision tree should improve the attack.&lt;/summary&gt;
+    &lt;strong&gt;Remark:&lt;/strong&gt; The resulting WB$\square$IP attack does better, but only for the low adversarial knowledge setting where the adversary doesn&amp;rsquo;t know the training distribution. Still for most cases, WB$\square$IP doesn&amp;rsquo;t do better than WB$\cdot$IP.
+&lt;/details&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;details&gt;
+    &lt;summary&gt;&lt;strong&gt;Hypothesis:&lt;/strong&gt; There should be no gap between attribute inference and imputation with knowledge of train set.&lt;/summary&gt;
+    &lt;strong&gt;Remark:&lt;/strong&gt; Though there is a gap, this gap is reduced when imputation is trained with class label.
+&lt;/details&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;WB$\cdot$IP multiplies the outputs of WB and IP &lt;br&gt;
+WB$\diamondsuit$IP uses a decision tree model to combine WB and IP &lt;br&gt;
+WB$\square$IP uses a decision tree model to combine WB, IP and WB$\cdot$IP &lt;br&gt;
+IP$^\dagger$ is the imputation with access to class label&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;76 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;74 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;73 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;75 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;72 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;92 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;81 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;72 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;79 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;76 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;89 $\pm$ 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;68 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;77 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;81 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;77 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 1:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Candidate set is drawn from general distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;model-doesn-t-have-access-to-race&#34;&gt;Model doesn&amp;rsquo;t have access to &lt;em&gt;race&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Here we study the impact of removing race from the model training. Since race and ethnicity have implicit correlation, it would be more realistic to assume the adversary trying to infer ethnicity would not know the race of the query record.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;28 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;38 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;43 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;43 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;39 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;42 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;42 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;43 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;40 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;44 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;46 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;46 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;47 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;49 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;46 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;49 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;45 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;46 $\pm$ 6&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;57 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;65 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;63 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;49 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;61 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;68 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;39 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;54 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;62 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;59 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;58 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;43 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;53 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;59 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;57 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;57 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;60 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;44 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;56 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;48 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;51 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;59 $\pm$ 9&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;56 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;38 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;43 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;50 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;57 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;38 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;56 $\pm$ 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 2:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Candidate set is drawn from general distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; From the results in Table 2, we can see the impact of removing race attribute on ethnicity inference. The imputation PPV drops from ~80% to ~40%.&lt;/p&gt;
+
+&lt;h3 id=&#34;predicting-hispanic-ethnicity-on-texas-100x-ii&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity on Texas-100X (II)&lt;/h3&gt;
+
+&lt;p&gt;Here we consider the scenario where the training data comes from skewed distribution, while an adversary (in low adversarial knowledge setting) might have access to the general pupulation distribution.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Threat Setting:&lt;/strong&gt; &lt;br&gt;
+Training distirbution is a skewed distribution limited to records from most populous hospitals.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;u&gt;Adversarial Knowledge&lt;/u&gt;:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows the general data set distribution except the most populous hospitals.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;model-uses-race-as-a-training-feature-1&#34;&gt;Model uses &lt;em&gt;race&lt;/em&gt; as a training feature&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;89 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;92 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;93 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;74 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;77 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;75 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;89 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;93 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;94 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;96 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;97 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;90 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;94 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;90 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;97 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;94 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 6&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;96 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;96 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;92 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;97 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;93 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;95 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;92 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;89 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 3:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Candidate set is drawn from &lt;em&gt;skewed&lt;/em&gt; distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; As shown in Table 3, IP$^\dagger$ performs slightly worse than IP. Hence the class label seems to have a negative correlation with the Hispanic ethnicity in this setting where training records come from a skewed distribution.&lt;/p&gt;
+
+&lt;h4 id=&#34;model-doesn-t-have-access-to-race-1&#34;&gt;Model doesn&amp;rsquo;t have access to &lt;em&gt;race&lt;/em&gt;&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;High Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Med Adv (Test)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Train)&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Low Adv (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;67 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;68 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;69 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;45 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;71 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;61 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;47 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;44 $\pm$ 6&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;53 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;55 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;53 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;56 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;51 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;54 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;91 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;70 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;89 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;61 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;60 $\pm$ 8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;90 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;59 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;56 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;82 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;60 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;86 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;87 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;84 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;59 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64 $\pm$ 8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;83 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;88 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;85 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;57 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;62 $\pm$ 6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 4:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Candidate set is drawn from &lt;em&gt;skewed&lt;/em&gt; distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; Similar to previous case, race&amp;rsquo;s correlation to ethnicity has a huge impact on the inference task.&lt;/p&gt;
+
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Merlin, Morgan, and the Importance of Thresholds and Priors</title>
       <link>https://bargavjayaraman.github.io/post/revisiting-mi/</link>
       <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>

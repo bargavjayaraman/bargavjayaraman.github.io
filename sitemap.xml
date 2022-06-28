@@ -19,14 +19,41 @@
   </url>
   
   <url>
+    <loc>https://bargavjayaraman.github.io/authors/admin/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bargavjayaraman.github.io/authors/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://bargavjayaraman.github.io/post/ai_defense_results/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bargavjayaraman.github.io/tags/differential-privacy/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/post/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -37,30 +64,8 @@
   </url>
   
   <url>
-    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://bargavjayaraman.github.io/post/revisiting-mi/</loc>
     <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/post/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/</loc>
-    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/authors/admin/</loc>
-    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
