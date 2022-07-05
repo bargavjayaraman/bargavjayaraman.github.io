@@ -56,11 +56,9 @@ Training distirbution is general data set distribution except the most populous 
 &lt;p&gt;&lt;em&gt;&lt;u&gt;Adversarial Knowledge&lt;/u&gt;:&lt;/em&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows a skewed distribution (that has records from hospitals with highest number of patients)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows a skewed distribution (that has records from hospitals with highest number of patients).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 
@@ -73,12 +71,12 @@ Training distirbution is general data set distribution except the most populous 
 
 &lt;p&gt;&lt;details&gt;
     &lt;summary&gt;&lt;strong&gt;Hypothesis:&lt;/strong&gt; Passing WB$\cdot$IP as a feature to WB$\diamondsuit$IP&amp;rsquo;s decision tree should improve the attack.&lt;/summary&gt;
-    &lt;strong&gt;Remark:&lt;/strong&gt; The resulting WB$\square$IP attack does better, but only for the low adversarial knowledge setting where the adversary doesn&amp;rsquo;t know the training distribution. Still for most cases, WB$\square$IP doesn&amp;rsquo;t do better than WB$\cdot$IP.
+    &lt;strong&gt;Remark:&lt;/strong&gt; The result is a mixed bag. WB$\square$IP attack does better than WB$\diamondsuit$IP attack in many (but not all) cases. Still for most cases, WB$\square$IP doesn&amp;rsquo;t do better than WB$\cdot$IP.
 &lt;/details&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;details&gt;
     &lt;summary&gt;&lt;strong&gt;Hypothesis:&lt;/strong&gt; There should be no gap between attribute inference and imputation with knowledge of train set.&lt;/summary&gt;
-    &lt;strong&gt;Remark:&lt;/strong&gt; Though there is a gap, this gap is reduced when imputation is trained with class label.
+    &lt;strong&gt;Remark:&lt;/strong&gt; There is a considerable gap, even though this gap is reduced when imputation is trained with class label.
 &lt;/details&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -86,6 +84,14 @@ Training distirbution is general data set distribution except the most populous 
 WB$\diamondsuit$IP uses a decision tree model to combine WB and IP &lt;br&gt;
 WB$\square$IP uses a decision tree model to combine WB, IP and WB$\cdot$IP &lt;br&gt;
 IP$^\dagger$ is the imputation with access to class label&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;u&gt;Candidate Sets&lt;/u&gt;:&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Train:&lt;/em&gt; Subset of 10,000 candidate records drawn from the training set.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Test:&lt;/em&gt; Subset of 10,000 candidate records randomly sampled from the training distribution.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;OOD:&lt;/em&gt; Subset of 10,000 candidate records randomly sampled from a distribution different from the training distribution.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/blockquote&gt;
 
 &lt;table&gt;
@@ -407,11 +413,9 @@ Training distirbution is a skewed distribution limited to records from most popu
 &lt;p&gt;&lt;em&gt;&lt;u&gt;Adversarial Knowledge&lt;/u&gt;:&lt;/em&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set)&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows the general data set distribution except the most populous hospitals.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;High:&lt;/em&gt; Adversary knows all but one record from training set.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Medium:&lt;/em&gt; Adversary knows the training distribution (i.e. can sample records with no intersection with training set).&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Low:&lt;/em&gt; Adversary knows the general data set distribution except the most populous hospitals.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 

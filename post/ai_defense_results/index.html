@@ -597,11 +597,9 @@ Training distirbution is general data set distribution except the most populous 
 <p><em><u>Adversarial Knowledge</u>:</em></p>
 
 <ul>
-<li><p><em>High:</em> Adversary knows all but one record from training set.</p></li>
-
-<li><p><em>Medium:</em> Adversary knows the training distribution (i.e. can sample records with no intersection with training set)</p></li>
-
-<li><p><em>Low:</em> Adversary knows a skewed distribution (that has records from hospitals with highest number of patients)</p></li>
+<li><em>High:</em> Adversary knows all but one record from training set.</li>
+<li><em>Medium:</em> Adversary knows the training distribution (i.e. can sample records with no intersection with training set).</li>
+<li><em>Low:</em> Adversary knows a skewed distribution (that has records from hospitals with highest number of patients).</li>
 </ul>
 </blockquote>
 
@@ -614,12 +612,12 @@ Training distirbution is general data set distribution except the most populous 
 
 <p><details>
     <summary><strong>Hypothesis:</strong> Passing WB$\cdot$IP as a feature to WB$\diamondsuit$IP&rsquo;s decision tree should improve the attack.</summary>
-    <strong>Remark:</strong> The resulting WB$\square$IP attack does better, but only for the low adversarial knowledge setting where the adversary doesn&rsquo;t know the training distribution. Still for most cases, WB$\square$IP doesn&rsquo;t do better than WB$\cdot$IP.
+    <strong>Remark:</strong> The result is a mixed bag. WB$\square$IP attack does better than WB$\diamondsuit$IP attack in many (but not all) cases. Still for most cases, WB$\square$IP doesn&rsquo;t do better than WB$\cdot$IP.
 </details></p>
 
 <p><details>
     <summary><strong>Hypothesis:</strong> There should be no gap between attribute inference and imputation with knowledge of train set.</summary>
-    <strong>Remark:</strong> Though there is a gap, this gap is reduced when imputation is trained with class label.
+    <strong>Remark:</strong> There is a considerable gap, even though this gap is reduced when imputation is trained with class label.
 </details></p>
 
 <blockquote>
@@ -627,6 +625,14 @@ Training distirbution is general data set distribution except the most populous 
 WB$\diamondsuit$IP uses a decision tree model to combine WB and IP <br>
 WB$\square$IP uses a decision tree model to combine WB, IP and WB$\cdot$IP <br>
 IP$^\dagger$ is the imputation with access to class label</p>
+
+<p><em><u>Candidate Sets</u>:</em></p>
+
+<ul>
+<li><em>Train:</em> Subset of 10,000 candidate records drawn from the training set.</li>
+<li><em>Test:</em> Subset of 10,000 candidate records randomly sampled from the training distribution.</li>
+<li><em>OOD:</em> Subset of 10,000 candidate records randomly sampled from a distribution different from the training distribution.</li>
+</ul>
 </blockquote>
 
 <table>
@@ -948,11 +954,9 @@ Training distirbution is a skewed distribution limited to records from most popu
 <p><em><u>Adversarial Knowledge</u>:</em></p>
 
 <ul>
-<li><p><em>High:</em> Adversary knows all but one record from training set.</p></li>
-
-<li><p><em>Medium:</em> Adversary knows the training distribution (i.e. can sample records with no intersection with training set)</p></li>
-
-<li><p><em>Low:</em> Adversary knows the general data set distribution except the most populous hospitals.</p></li>
+<li><em>High:</em> Adversary knows all but one record from training set.</li>
+<li><em>Medium:</em> Adversary knows the training distribution (i.e. can sample records with no intersection with training set).</li>
+<li><em>Low:</em> Adversary knows the general data set distribution except the most populous hospitals.</li>
 </ul>
 </blockquote>
 
