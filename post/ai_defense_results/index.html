@@ -419,7 +419,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    7 min read
+    9 min read
   </span>
   
 
@@ -633,114 +633,147 @@ IP$^\dagger$ is the imputation with access to class label</p>
 <thead>
 <tr>
 <th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-<th align="left">High Adv (Train)</th>
-<th align="left">High Adv (Test)</th>
-<th align="left">Med Adv (Train)</th>
-<th align="left">Med Adv (Test)</th>
-<th align="left">Low Adv (Train)</th>
-<th align="left">Low Adv (Test)</th>
+<th align="left">High (Train)</th>
+<th align="left">High (Test)</th>
+<th align="left">High (OOD)</th>
+<th align="left">Med (Train)</th>
+<th align="left">Med (Test)</th>
+<th align="left">Med (OOD)</th>
+<th align="left">Low (Train)</th>
+<th align="left">Low (Test)</th>
+<th align="left">Low (OOD)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td align="left">Random</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
 </tr>
 
 <tr>
 <td align="left">IP</td>
-<td align="left">76 $\pm$ 2</td>
-<td align="left">74 $\pm$ 3</td>
-<td align="left">80 $\pm$ 2</td>
-<td align="left">80 $\pm$ 2</td>
-<td align="left">73 $\pm$ 3</td>
-<td align="left">75 $\pm$ 4</td>
+<td align="left">81 $\pm$ 2</td>
+<td align="left">79 $\pm$ 2</td>
+<td align="left">70 $\pm$ 3</td>
+<td align="left">79 $\pm$ 4</td>
+<td align="left">75 $\pm$ 2</td>
+<td align="left">71 $\pm$ 5</td>
+<td align="left">76 $\pm$ 3</td>
+<td align="left">80 $\pm$ 4</td>
+<td align="left">81 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">IP$^\dagger$</td>
-<td align="left">80 $\pm$ 2</td>
-<td align="left">80 $\pm$ 2</td>
-<td align="left">80 $\pm$ 1</td>
-<td align="left">80 $\pm$ 3</td>
-<td align="left">72 $\pm$ 2</td>
-<td align="left">80 $\pm$ 2</td>
+<td align="left">83 $\pm$ 2</td>
+<td align="left">82 $\pm$ 2</td>
+<td align="left">73 $\pm$ 3</td>
+<td align="left">82 $\pm$ 2</td>
+<td align="left">80 $\pm$ 5</td>
+<td align="left">73 $\pm$ 4</td>
+<td align="left">80 $\pm$ 4</td>
+<td align="left">79 $\pm$ 4</td>
+<td align="left">78 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB</td>
-<td align="left">83 $\pm$ 3</td>
-<td align="left">85 $\pm$ 2</td>
-<td align="left">83 $\pm$ 5</td>
-<td align="left">84 $\pm$ 1</td>
-<td align="left">85 $\pm$ 3</td>
-<td align="left">86 $\pm$ 4</td>
+<td align="left">88 $\pm$ 3</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">84 $\pm$ 6</td>
+<td align="left">88 $\pm$ 3</td>
+<td align="left">87 $\pm$ 1</td>
+<td align="left">86 $\pm$ 5</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">90 $\pm$ 3</td>
+<td align="left">91 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP</td>
-<td align="left">88 $\pm$ 3</td>
-<td align="left">87 $\pm$ 4</td>
-<td align="left">84 $\pm$ 2</td>
 <td align="left">86 $\pm$ 4</td>
-<td align="left">87 $\pm$ 2</td>
-<td align="left">92 $\pm$ 2</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">78 $\pm$ 5</td>
+<td align="left">88 $\pm$ 4</td>
+<td align="left">87 $\pm$ 3</td>
+<td align="left">85 $\pm$ 4</td>
+<td align="left">86 $\pm$ 2</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">91 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP</td>
-<td align="left">81 $\pm$ 2</td>
-<td align="left">83 $\pm$ 3</td>
-<td align="left">82 $\pm$ 4</td>
-<td align="left">85 $\pm$ 5</td>
-<td align="left">72 $\pm$ 3</td>
-<td align="left">82 $\pm$ 4</td>
+<td align="left">86 $\pm$ 2</td>
+<td align="left">85 $\pm$ 4</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">86 $\pm$ 2</td>
+<td align="left">82 $\pm$ 5</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">74 $\pm$ 6</td>
+<td align="left">75 $\pm$ 7</td>
+<td align="left">91 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP</td>
-<td align="left">79 $\pm$ 5</td>
+<td align="left">87 $\pm$ 3</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">87 $\pm$ 3</td>
 <td align="left">85 $\pm$ 4</td>
-<td align="left">83 $\pm$ 2</td>
-<td align="left">83 $\pm$ 3</td>
-<td align="left">76 $\pm$ 4</td>
-<td align="left">85 $\pm$ 4</td>
+<td align="left">87 $\pm$ 4</td>
+<td align="left">79 $\pm$ 8</td>
+<td align="left">78 $\pm$ 8</td>
+<td align="left">93 $\pm$ 1</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP$^\dagger$</td>
+<td align="left">86 $\pm$ 2</td>
+<td align="left">85 $\pm$ 2</td>
+<td align="left">77 $\pm$ 4</td>
+<td align="left">89 $\pm$ 3</td>
 <td align="left">87 $\pm$ 3</td>
-<td align="left">85 $\pm$ 4</td>
-<td align="left">84 $\pm$ 2</td>
-<td align="left">88 $\pm$ 2</td>
-<td align="left">86 $\pm$ 3</td>
-<td align="left">89 $\pm$ 1</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">88 $\pm$ 3</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">88 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP$^\dagger$</td>
-<td align="left">84 $\pm$ 2</td>
-<td align="left">83 $\pm$ 4</td>
-<td align="left">82 $\pm$ 2</td>
-<td align="left">83 $\pm$ 5</td>
-<td align="left">68 $\pm$ 5</td>
-<td align="left">77 $\pm$ 5</td>
+<td align="left">86 $\pm$ 6</td>
+<td align="left">80 $\pm$ 4</td>
+<td align="left">83 $\pm$ 6</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">84 $\pm$ 5</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">79 $\pm$ 9</td>
+<td align="left">74 $\pm$ 8</td>
+<td align="left">90 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP$^\dagger$</td>
-<td align="left">83 $\pm$ 1</td>
-<td align="left">82 $\pm$ 2</td>
-<td align="left">81 $\pm$ 3</td>
-<td align="left">86 $\pm$ 5</td>
-<td align="left">77 $\pm$ 4</td>
-<td align="left">83 $\pm$ 3</td>
+<td align="left">88 $\pm$ 3</td>
+<td align="left">85 $\pm$ 3</td>
+<td align="left">87 $\pm$ 1</td>
+<td align="left">88 $\pm$ 2</td>
+<td align="left">84 $\pm$ 5</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">83 $\pm$ 9</td>
+<td align="left">77 $\pm$ 9</td>
+<td align="left">90 $\pm$ 2</td>
 </tr>
 </tbody>
 </table>
@@ -755,114 +788,147 @@ IP$^\dagger$ is the imputation with access to class label</p>
 <thead>
 <tr>
 <th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-<th align="left">High Adv (Train)</th>
-<th align="left">High Adv (Test)</th>
-<th align="left">Med Adv (Train)</th>
-<th align="left">Med Adv (Test)</th>
-<th align="left">Low Adv (Train)</th>
-<th align="left">Low Adv (Test)</th>
+<th align="left">High (Train)</th>
+<th align="left">High (Test)</th>
+<th align="left">High (OOD)</th>
+<th align="left">Med (Train)</th>
+<th align="left">Med (Test)</th>
+<th align="left">Med (OOD)</th>
+<th align="left">Low (Train)</th>
+<th align="left">Low (Test)</th>
+<th align="left">Low (OOD)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td align="left">Random</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">29 $\pm$ 0</td>
 <td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
-<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
 </tr>
 
 <tr>
 <td align="left">IP</td>
-<td align="left">41 $\pm$ 3</td>
-<td align="left">38 $\pm$ 1</td>
-<td align="left">43 $\pm$ 1</td>
-<td align="left">43 $\pm$ 2</td>
-<td align="left">39 $\pm$ 2</td>
-<td align="left">42 $\pm$ 3</td>
+<td align="left">44 $\pm$ 5</td>
+<td align="left">40 $\pm$ 4</td>
+<td align="left">37 $\pm$ 10</td>
+<td align="left">47 $\pm$ 8</td>
+<td align="left">47 $\pm$ 3</td>
+<td align="left">32 $\pm$ 3</td>
+<td align="left">36 $\pm$ 4</td>
+<td align="left">39 $\pm$ 4</td>
+<td align="left">52 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">IP$^\dagger$</td>
-<td align="left">42 $\pm$ 2</td>
-<td align="left">43 $\pm$ 2</td>
-<td align="left">40 $\pm$ 4</td>
-<td align="left">44 $\pm$ 3</td>
-<td align="left">46 $\pm$ 2</td>
-<td align="left">46 $\pm$ 4</td>
+<td align="left">45 $\pm$ 2</td>
+<td align="left">41 $\pm$ 3</td>
+<td align="left">37 $\pm$ 5</td>
+<td align="left">44 $\pm$ 4</td>
+<td align="left">43 $\pm$ 4</td>
+<td align="left">30 $\pm$ 2</td>
+<td align="left">38 $\pm$ 5</td>
+<td align="left">43 $\pm$ 5</td>
+<td align="left">61 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB</td>
-<td align="left">47 $\pm$ 4</td>
-<td align="left">49 $\pm$ 4</td>
-<td align="left">46 $\pm$ 3</td>
-<td align="left">49 $\pm$ 2</td>
-<td align="left">45 $\pm$ 2</td>
-<td align="left">46 $\pm$ 6</td>
+<td align="left">55 $\pm$ 3</td>
+<td align="left">52 $\pm$ 4</td>
+<td align="left">60 $\pm$ 7</td>
+<td align="left">54 $\pm$ 3</td>
+<td align="left">53 $\pm$ 4</td>
+<td align="left">62 $\pm$ 7</td>
+<td align="left">55 $\pm$ 4</td>
+<td align="left">54 $\pm$ 5</td>
+<td align="left">65 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP</td>
-<td align="left">57 $\pm$ 2</td>
-<td align="left">55 $\pm$ 2</td>
-<td align="left">65 $\pm$ 2</td>
-<td align="left">63 $\pm$ 2</td>
-<td align="left">49 $\pm$ 1</td>
-<td align="left">55 $\pm$ 1</td>
+<td align="left">60 $\pm$ 3</td>
+<td align="left">57 $\pm$ 5</td>
+<td align="left">55 $\pm$ 9</td>
+<td align="left">63 $\pm$ 6</td>
+<td align="left">59 $\pm$ 2</td>
+<td align="left">61 $\pm$ 7</td>
+<td align="left">52 $\pm$ 6</td>
+<td align="left">51 $\pm$ 6</td>
+<td align="left">85 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP</td>
+<td align="left">61 $\pm$ 3</td>
 <td align="left">61 $\pm$ 6</td>
-<td align="left">55 $\pm$ 7</td>
-<td align="left">68 $\pm$ 3</td>
-<td align="left">64 $\pm$ 1</td>
-<td align="left">39 $\pm$ 3</td>
+<td align="left">63 $\pm$ 4</td>
+<td align="left">61 $\pm$ 3</td>
+<td align="left">57 $\pm$ 5</td>
 <td align="left">54 $\pm$ 3</td>
+<td align="left">47 $\pm$ 6</td>
+<td align="left">49 $\pm$ 4</td>
+<td align="left">82 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP</td>
-<td align="left">62 $\pm$ 4</td>
-<td align="left">59 $\pm$ 8</td>
-<td align="left">64 $\pm$ 6</td>
-<td align="left">58 $\pm$ 6</td>
-<td align="left">43 $\pm$ 2</td>
-<td align="left">53 $\pm$ 3</td>
+<td align="left">61 $\pm$ 6</td>
+<td align="left">57 $\pm$ 5</td>
+<td align="left">56 $\pm$ 5</td>
+<td align="left">61 $\pm$ 4</td>
+<td align="left">56 $\pm$ 7</td>
+<td align="left">55 $\pm$ 3</td>
+<td align="left">48 $\pm$ 7</td>
+<td align="left">49 $\pm$ 5</td>
+<td align="left">85 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP$^\dagger$</td>
-<td align="left">59 $\pm$ 2</td>
-<td align="left">57 $\pm$ 2</td>
-<td align="left">57 $\pm$ 2</td>
-<td align="left">60 $\pm$ 3</td>
-<td align="left">44 $\pm$ 1</td>
-<td align="left">56 $\pm$ 2</td>
+<td align="left">61 $\pm$ 3</td>
+<td align="left">57 $\pm$ 4</td>
+<td align="left">66 $\pm$ 5</td>
+<td align="left">61 $\pm$ 3</td>
+<td align="left">58 $\pm$ 4</td>
+<td align="left">61 $\pm$ 4</td>
+<td align="left">51 $\pm$ 5</td>
+<td align="left">50 $\pm$ 3</td>
+<td align="left">82 $\pm$ 5</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP$^\dagger$</td>
-<td align="left">48 $\pm$ 5</td>
-<td align="left">51 $\pm$ 2</td>
-<td align="left">59 $\pm$ 9</td>
-<td align="left">56 $\pm$ 3</td>
-<td align="left">38 $\pm$ 3</td>
-<td align="left">55 $\pm$ 2</td>
+<td align="left">58 $\pm$ 4</td>
+<td align="left">55 $\pm$ 6</td>
+<td align="left">56 $\pm$ 5</td>
+<td align="left">56 $\pm$ 2</td>
+<td align="left">55 $\pm$ 7</td>
+<td align="left">60 $\pm$ 9</td>
+<td align="left">48 $\pm$ 8</td>
+<td align="left">46 $\pm$ 8</td>
+<td align="left">83 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP$^\dagger$</td>
-<td align="left">43 $\pm$ 7</td>
-<td align="left">50 $\pm$ 4</td>
-<td align="left">57 $\pm$ 4</td>
-<td align="left">55 $\pm$ 5</td>
-<td align="left">38 $\pm$ 2</td>
-<td align="left">56 $\pm$ 1</td>
+<td align="left">57 $\pm$ 3</td>
+<td align="left">55 $\pm$ 2</td>
+<td align="left">54 $\pm$ 5</td>
+<td align="left">57 $\pm$ 3</td>
+<td align="left">58 $\pm$ 4</td>
+<td align="left">60 $\pm$ 7</td>
+<td align="left">48 $\pm$ 6</td>
+<td align="left">45 $\pm$ 7</td>
+<td align="left">82 $\pm$ 1</td>
 </tr>
 </tbody>
 </table>
@@ -896,114 +962,147 @@ Training distirbution is a skewed distribution limited to records from most popu
 <thead>
 <tr>
 <th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-<th align="left">High Adv (Train)</th>
-<th align="left">High Adv (Test)</th>
-<th align="left">Med Adv (Train)</th>
-<th align="left">Med Adv (Test)</th>
-<th align="left">Low Adv (Train)</th>
-<th align="left">Low Adv (Test)</th>
+<th align="left">High (Train)</th>
+<th align="left">High (Test)</th>
+<th align="left">High (OOD)</th>
+<th align="left">Med (Train)</th>
+<th align="left">Med (Test)</th>
+<th align="left">Med (OOD)</th>
+<th align="left">Low (Train)</th>
+<th align="left">Low (Test)</th>
+<th align="left">Low (OOD)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td align="left">Random</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
 </tr>
 
 <tr>
 <td align="left">IP</td>
-<td align="left">89 $\pm$ 3</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">83 $\pm$ 3</td>
+<td align="left">76 $\pm$ 5</td>
 <td align="left">88 $\pm$ 3</td>
-<td align="left">92 $\pm$ 2</td>
-<td align="left">93 $\pm$ 2</td>
-<td align="left">83 $\pm$ 2</td>
-<td align="left">74 $\pm$ 4</td>
+<td align="left">87 $\pm$ 3</td>
+<td align="left">76 $\pm$ 4</td>
+<td align="left">72 $\pm$ 4</td>
+<td align="left">65 $\pm$ 4</td>
+<td align="left">80 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">IP$^\dagger$</td>
-<td align="left">88 $\pm$ 1</td>
-<td align="left">85 $\pm$ 2</td>
-<td align="left">83 $\pm$ 4</td>
-<td align="left">88 $\pm$ 3</td>
-<td align="left">77 $\pm$ 2</td>
-<td align="left">75 $\pm$ 3</td>
+<td align="left">84 $\pm$ 2</td>
+<td align="left">85 $\pm$ 1</td>
+<td align="left">81 $\pm$ 2</td>
+<td align="left">87 $\pm$ 2</td>
+<td align="left">82 $\pm$ 2</td>
+<td align="left">75 $\pm$ 2</td>
+<td align="left">73 $\pm$ 4</td>
+<td align="left">67 $\pm$ 6</td>
+<td align="left">80 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB</td>
-<td align="left">87 $\pm$ 6</td>
-<td align="left">91 $\pm$ 5</td>
-<td align="left">89 $\pm$ 4</td>
-<td align="left">93 $\pm$ 3</td>
-<td align="left">94 $\pm$ 4</td>
-<td align="left">91 $\pm$ 3</td>
+<td align="left">92 $\pm$ 2</td>
+<td align="left">90 $\pm$ 4</td>
+<td align="left">87 $\pm$ 2</td>
+<td align="left">93 $\pm$ 2</td>
+<td align="left">90 $\pm$ 4</td>
+<td align="left">87 $\pm$ 2</td>
+<td align="left">84 $\pm$ 6</td>
+<td align="left">81 $\pm$ 6</td>
+<td align="left">81 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP</td>
+<td align="left">95 $\pm$ 3</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">86 $\pm$ 4</td>
 <td align="left">96 $\pm$ 1</td>
-<td align="left">95 $\pm$ 2</td>
-<td align="left">97 $\pm$ 2</td>
-<td align="left">95 $\pm$ 1</td>
-<td align="left">90 $\pm$ 2</td>
-<td align="left">88 $\pm$ 3</td>
+<td align="left">93 $\pm$ 3</td>
+<td align="left">89 $\pm$ 2</td>
+<td align="left">79 $\pm$ 3</td>
+<td align="left">78 $\pm$ 4</td>
+<td align="left">85 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP</td>
-<td align="left">94 $\pm$ 1</td>
-<td align="left">88 $\pm$ 1</td>
-<td align="left">91 $\pm$ 3</td>
-<td align="left">90 $\pm$ 2</td>
-<td align="left">86 $\pm$ 7</td>
-<td align="left">84 $\pm$ 5</td>
+<td align="left">90 $\pm$ 3</td>
+<td align="left">90 $\pm$ 3</td>
+<td align="left">74 $\pm$ 5</td>
+<td align="left">92 $\pm$ 3</td>
+<td align="left">92 $\pm$ 2</td>
+<td align="left">74 $\pm$ 2</td>
+<td align="left">81 $\pm$ 5</td>
+<td align="left">79 $\pm$ 7</td>
+<td align="left">85 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP</td>
-<td align="left">97 $\pm$ 1</td>
-<td align="left">91 $\pm$ 3</td>
-<td align="left">94 $\pm$ 2</td>
+<td align="left">90 $\pm$ 1</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">75 $\pm$ 1</td>
+<td align="left">92 $\pm$ 2</td>
 <td align="left">91 $\pm$ 2</td>
-<td align="left">91 $\pm$ 3</td>
-<td align="left">88 $\pm$ 6</td>
+<td align="left">81 $\pm$ 6</td>
+<td align="left">80 $\pm$ 4</td>
+<td align="left">77 $\pm$ 7</td>
+<td align="left">83 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP$^\dagger$</td>
-<td align="left">96 $\pm$ 1</td>
 <td align="left">95 $\pm$ 3</td>
-<td align="left">96 $\pm$ 2</td>
-<td align="left">95 $\pm$ 2</td>
-<td align="left">91 $\pm$ 2</td>
-<td align="left">86 $\pm$ 2</td>
+<td align="left">89 $\pm$ 4</td>
+<td align="left">88 $\pm$ 2</td>
+<td align="left">95 $\pm$ 1</td>
+<td align="left">90 $\pm$ 4</td>
+<td align="left">90 $\pm$ 2</td>
+<td align="left">81 $\pm$ 5</td>
+<td align="left">79 $\pm$ 4</td>
+<td align="left">84 $\pm$ 1</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP$^\dagger$</td>
-<td align="left">95 $\pm$ 2</td>
-<td align="left">88 $\pm$ 3</td>
-<td align="left">95 $\pm$ 1</td>
-<td align="left">92 $\pm$ 2</td>
-<td align="left">87 $\pm$ 6</td>
+<td align="left">90 $\pm$ 3</td>
+<td align="left">90 $\pm$ 3</td>
+<td align="left">78 $\pm$ 7</td>
+<td align="left">92 $\pm$ 4</td>
+<td align="left">91 $\pm$ 1</td>
+<td align="left">74 $\pm$ 5</td>
 <td align="left">82 $\pm$ 5</td>
+<td align="left">80 $\pm$ 5</td>
+<td align="left">85 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP$^\dagger$</td>
-<td align="left">97 $\pm$ 1</td>
-<td align="left">93 $\pm$ 4</td>
-<td align="left">95 $\pm$ 2</td>
-<td align="left">92 $\pm$ 1</td>
-<td align="left">89 $\pm$ 2</td>
-<td align="left">84 $\pm$ 6</td>
+<td align="left">92 $\pm$ 4</td>
+<td align="left">89 $\pm$ 3</td>
+<td align="left">81 $\pm$ 5</td>
+<td align="left">91 $\pm$ 3</td>
+<td align="left">90 $\pm$ 1</td>
+<td align="left">78 $\pm$ 7</td>
+<td align="left">80 $\pm$ 6</td>
+<td align="left">78 $\pm$ 6</td>
+<td align="left">85 $\pm$ 3</td>
 </tr>
 </tbody>
 </table>
@@ -1018,114 +1117,147 @@ Training distirbution is a skewed distribution limited to records from most popu
 <thead>
 <tr>
 <th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-<th align="left">High Adv (Train)</th>
-<th align="left">High Adv (Test)</th>
-<th align="left">Med Adv (Train)</th>
-<th align="left">Med Adv (Test)</th>
-<th align="left">Low Adv (Train)</th>
-<th align="left">Low Adv (Test)</th>
+<th align="left">High (Train)</th>
+<th align="left">High (Test)</th>
+<th align="left">High (OOD)</th>
+<th align="left">Med (Train)</th>
+<th align="left">Med (Test)</th>
+<th align="left">Med (OOD)</th>
+<th align="left">Low (Train)</th>
+<th align="left">Low (Test)</th>
+<th align="left">Low (OOD)</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td align="left">Random</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
-<td align="left">22 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">24 $\pm$ 0</td>
+<td align="left">28 $\pm$ 0</td>
 </tr>
 
 <tr>
 <td align="left">IP</td>
-<td align="left">67 $\pm$ 3</td>
-<td align="left">68 $\pm$ 3</td>
-<td align="left">64 $\pm$ 4</td>
-<td align="left">69 $\pm$ 5</td>
-<td align="left">41 $\pm$ 5</td>
-<td align="left">45 $\pm$ 4</td>
+<td align="left">65 $\pm$ 4</td>
+<td align="left">61 $\pm$ 4</td>
+<td align="left">37 $\pm$ 2</td>
+<td align="left">70 $\pm$ 6</td>
+<td align="left">72 $\pm$ 5</td>
+<td align="left">43 $\pm$ 4</td>
+<td align="left">32 $\pm$ 4</td>
+<td align="left">32 $\pm$ 6</td>
+<td align="left">41 $\pm$ 2</td>
 </tr>
 
 <tr>
 <td align="left">IP$^\dagger$</td>
-<td align="left">71 $\pm$ 5</td>
-<td align="left">64 $\pm$ 2</td>
-<td align="left">64 $\pm$ 3</td>
-<td align="left">61 $\pm$ 1</td>
-<td align="left">47 $\pm$ 2</td>
-<td align="left">44 $\pm$ 6</td>
+<td align="left">64 $\pm$ 5</td>
+<td align="left">62 $\pm$ 6</td>
+<td align="left">42 $\pm$ 3</td>
+<td align="left">70 $\pm$ 3</td>
+<td align="left">68 $\pm$ 4</td>
+<td align="left">40 $\pm$ 3</td>
+<td align="left">37 $\pm$ 2</td>
+<td align="left">36 $\pm$ 4</td>
+<td align="left">38 $\pm$ 7</td>
 </tr>
 
 <tr>
 <td align="left">WB</td>
-<td align="left">53 $\pm$ 6</td>
-<td align="left">55 $\pm$ 4</td>
-<td align="left">53 $\pm$ 6</td>
+<td align="left">57 $\pm$ 6</td>
+<td align="left">57 $\pm$ 8</td>
+<td align="left">51 $\pm$ 5</td>
 <td align="left">56 $\pm$ 4</td>
-<td align="left">51 $\pm$ 4</td>
-<td align="left">54 $\pm$ 5</td>
+<td align="left">56 $\pm$ 7</td>
+<td align="left">52 $\pm$ 4</td>
+<td align="left">57 $\pm$ 4</td>
+<td align="left">56 $\pm$ 6</td>
+<td align="left">50 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP</td>
-<td align="left">86 $\pm$ 1</td>
-<td align="left">87 $\pm$ 1</td>
-<td align="left">91 $\pm$ 1</td>
-<td align="left">91 $\pm$ 2</td>
-<td align="left">64 $\pm$ 2</td>
-<td align="left">70 $\pm$ 2</td>
+<td align="left">89 $\pm$ 5</td>
+<td align="left">86 $\pm$ 5</td>
+<td align="left">53 $\pm$ 2</td>
+<td align="left">90 $\pm$ 2</td>
+<td align="left">88 $\pm$ 4</td>
+<td align="left">53 $\pm$ 2</td>
+<td align="left">58 $\pm$ 3</td>
+<td align="left">58 $\pm$ 5</td>
+<td align="left">63 $\pm$ 3</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP</td>
-<td align="left">86 $\pm$ 1</td>
-<td align="left">84 $\pm$ 4</td>
-<td align="left">89 $\pm$ 1</td>
-<td align="left">84 $\pm$ 2</td>
-<td align="left">61 $\pm$ 6</td>
-<td align="left">60 $\pm$ 8</td>
+<td align="left">84 $\pm$ 5</td>
+<td align="left">85 $\pm$ 4</td>
+<td align="left">45 $\pm$ 2</td>
+<td align="left">82 $\pm$ 2</td>
+<td align="left">85 $\pm$ 3</td>
+<td align="left">47 $\pm$ 3</td>
+<td align="left">58 $\pm$ 6</td>
+<td align="left">58 $\pm$ 5</td>
+<td align="left">59 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP</td>
-<td align="left">87 $\pm$ 3</td>
+<td align="left">84 $\pm$ 7</td>
+<td align="left">84 $\pm$ 5</td>
+<td align="left">46 $\pm$ 2</td>
+<td align="left">85 $\pm$ 2</td>
 <td align="left">85 $\pm$ 4</td>
-<td align="left">90 $\pm$ 1</td>
-<td align="left">87 $\pm$ 2</td>
-<td align="left">59 $\pm$ 8</td>
-<td align="left">56 $\pm$ 3</td>
+<td align="left">46 $\pm$ 3</td>
+<td align="left">60 $\pm$ 6</td>
+<td align="left">59 $\pm$ 5</td>
+<td align="left">58 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\cdot$IP$^\dagger$</td>
-<td align="left">80 $\pm$ 3</td>
-<td align="left">82 $\pm$ 1</td>
-<td align="left">85 $\pm$ 2</td>
-<td align="left">86 $\pm$ 1</td>
-<td align="left">60 $\pm$ 4</td>
-<td align="left">64 $\pm$ 3</td>
+<td align="left">83 $\pm$ 3</td>
+<td align="left">85 $\pm$ 4</td>
+<td align="left">56 $\pm$ 4</td>
+<td align="left">88 $\pm$ 3</td>
+<td align="left">87 $\pm$ 4</td>
+<td align="left">53 $\pm$ 4</td>
+<td align="left">67 $\pm$ 4</td>
+<td align="left">65 $\pm$ 5</td>
+<td align="left">61 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\diamondsuit$IP$^\dagger$</td>
-<td align="left">83 $\pm$ 1</td>
-<td align="left">86 $\pm$ 2</td>
-<td align="left">87 $\pm$ 3</td>
-<td align="left">84 $\pm$ 2</td>
-<td align="left">59 $\pm$ 7</td>
-<td align="left">64 $\pm$ 8</td>
+<td align="left">81 $\pm$ 5</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">44 $\pm$ 2</td>
+<td align="left">82 $\pm$ 4</td>
+<td align="left">85 $\pm$ 2</td>
+<td align="left">46 $\pm$ 3</td>
+<td align="left">60 $\pm$ 4</td>
+<td align="left">60 $\pm$ 4</td>
+<td align="left">58 $\pm$ 4</td>
 </tr>
 
 <tr>
 <td align="left">WB$\square$IP$^\dagger$</td>
-<td align="left">83 $\pm$ 1</td>
-<td align="left">85 $\pm$ 1</td>
-<td align="left">88 $\pm$ 1</td>
-<td align="left">85 $\pm$ 1</td>
-<td align="left">57 $\pm$ 7</td>
-<td align="left">62 $\pm$ 6</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">86 $\pm$ 3</td>
+<td align="left">45 $\pm$ 3</td>
+<td align="left">84 $\pm$ 4</td>
+<td align="left">86 $\pm$ 2</td>
+<td align="left">45 $\pm$ 2</td>
+<td align="left">59 $\pm$ 6</td>
+<td align="left">58 $\pm$ 3</td>
+<td align="left">57 $\pm$ 5</td>
 </tr>
 </tbody>
 </table>
