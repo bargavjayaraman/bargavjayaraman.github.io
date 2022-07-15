@@ -23,7 +23,7 @@
 
 &lt;hr /&gt;
 
-&lt;h3 id=&#34;predicting-hispanic-ethnicity-on-texas-100x-i&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity on Texas-100X (I)&lt;/h3&gt;
+&lt;h3 id=&#34;predicting-hispanic-ethnicity-from-texas-100x-i&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity from Texas-100X (I)&lt;/h3&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Threat Setting:&lt;/strong&gt; &lt;br&gt;
@@ -432,7 +432,7 @@ IP$^\dagger$ is the imputation with access to class label&lt;/p&gt;
 
 &lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 3:&lt;/strong&gt; PPV (%) for predicting top-100 records from out-of-distributon candidate set (Texas-100X). Model is trained on general distribution.&lt;/center&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;predicting-hispanic-ethnicity-on-texas-100x-ii&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity on Texas-100X (II)&lt;/h3&gt;
+&lt;h3 id=&#34;predicting-hispanic-ethnicity-from-texas-100x-ii&#34;&gt;Predicting &lt;em&gt;Hispanic&lt;/em&gt; ethnicity from Texas-100X (II)&lt;/h3&gt;
 
 &lt;p&gt;Here we consider the scenario where the training data comes from skewed distribution, while an adversary (in low adversarial knowledge setting) might have access to the general pupulation distribution.&lt;/p&gt;
 
@@ -819,6 +819,382 @@ Training distirbution is a skewed distribution limited to records from most popu
 &lt;li&gt;In all the above settings, the white-box attacks perform similar on both training and test candidates, unlike the membership inference case where the attacks perform dissimilar across training and test candidate sets.&lt;/li&gt;
 &lt;li&gt;White-box attack outperforms even the imputation attack that has access to the class label. Thus, the model is leaking something beyond what an imputation can learn from the same data that the model is trained on. Is this because the imputation model is not learning effectively?&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&#34;jul-14-2022-vanilla-model-training-contd&#34;&gt;[Jul 14, 2022] Vanilla Model Training [Contd.]&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Here we study the inference of &lt;em&gt;Asian&lt;/em&gt; race from Texas-100X data set to see if the trend is same as what we observed for ethnicity attribute above. For this experiment, we remove the ethnicity attribute from the model training, since it is correlated to the target race attribute as we saw above.&lt;/p&gt;
+
+&lt;h3 id=&#34;predicting-asian-race-from-texas-100x-i&#34;&gt;Predicting &lt;em&gt;Asian&lt;/em&gt; race from Texas-100X (I)&lt;/h3&gt;
+
+&lt;p&gt;The model is trained on general distribution and the adversary might have access to either the training set, or training distribution or a different distribution based on the adversarial knowledge. In the general distribution, 22% of records have Asian race.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;High (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;High (Test)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Med (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Med (Test)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Low (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Low (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;34 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;30 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;38 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;37 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;35 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;43 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;51 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;40 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;42 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;47 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;49 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;34 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;43 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;44 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;44 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;48 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;47 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;47 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;51 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;34 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;47 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 1&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;45 $\pm$ 9&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;49 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 7:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Model is trained on general distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; We observe the same trend&amp;mdash; white-box attack does better than imputation and combining drastically improves the PPV of the combined attack on the general distribution candidate sets. Thus model is learning something useful about the distribution beyond the imputation. In the low setting, where the adversary only has access to skewed distribution, white-box attack still learns something useful, but combining with imputation does not further improve the PPV, suggesting that the attack signal is not different from imputation.&lt;/p&gt;
+
+&lt;h3 id=&#34;predicting-asian-race-from-texas-100x-ii&#34;&gt;Predicting &lt;em&gt;Asian&lt;/em&gt; race from Texas-100X (II)&lt;/h3&gt;
+
+&lt;p&gt;Here the model is trained on the skewed distribution that has 15% of records with Asian race.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;High (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;High (Test)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Med (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Med (Test)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Low (Train)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;Low (Test)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;26 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;18 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;30 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;28 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;14 $\pm$ 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;40 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;34 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;40 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;35 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;34 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;47 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;48 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;18 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;18 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;50 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;55 $\pm$ 10&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;54 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;55 $\pm$ 10&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;17 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;53 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;54 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;54 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;54 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;20 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;17 $\pm$ 1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;44 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;49 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;42 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;20 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;53 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;55 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;57 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;58 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16 $\pm$ 7&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;53 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;58 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;54 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;58 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;18 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 8:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Model is trained on general distribution.&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Remark:&lt;/strong&gt; Here also the observation is the same. White-box attack does better than imputation when the model is trained on the skewed distribution and the candidate sets are also from the skewed distribution.&lt;/p&gt;
+
+&lt;h4 id=&#34;results-on-out-of-distribution-candidate-set-2&#34;&gt;Results on out-of-distribution candidate set&lt;/h4&gt;
+
+&lt;p&gt;Here we evaluate the attacks on out-of-distribution candidate set. For the model trained on general distribution, the OOD set is from the skewed distribution, and vice-versa.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;High &lt;br&gt;(skewed $\mathcal{D}$)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Med &lt;br&gt;(skewed $\mathcal{D}$)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Low &lt;br&gt;(skewed $\mathcal{D}$)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;High &lt;br&gt;(general $\mathcal{D}$)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Med &lt;br&gt;(general $\mathcal{D}$)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Low &lt;br&gt;(general $\mathcal{D}$)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Random&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;15 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;17 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;26 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;17 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;16 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;23 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;25 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;30 $\pm$ 2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;36 $\pm$ 8&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;40 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;35 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;35 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;35 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;46 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;29 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;43 $\pm$ 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;57 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;45 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;22 $\pm$ 0&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;20 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;55 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;33 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;42 $\pm$ 8&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\cdot$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;24 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;21 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;50 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;28 $\pm$ 2&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;44 $\pm$ 7&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\diamondsuit$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;19 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;57 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 5&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;43 $\pm$ 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;WB$\square$IP$^\dagger$&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;20 $\pm$ 6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;20 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;57 $\pm$ 3&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;31 $\pm$ 4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;39 $\pm$ 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;strong&gt;Table 9:&lt;/strong&gt; PPV (%) for predicting top-100 records on Texas-100X. Model is trained without Ethnicity attribute.&lt;/center&gt;&lt;/p&gt;
 </description>
     </item>
     

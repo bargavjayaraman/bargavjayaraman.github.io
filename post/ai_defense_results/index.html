@@ -421,7 +421,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    10 min read
+    14 min read
   </span>
   
 
@@ -590,7 +590,7 @@
 
 <hr />
 
-<h3 id="predicting-hispanic-ethnicity-on-texas-100x-i">Predicting <em>Hispanic</em> ethnicity on Texas-100X (I)</h3>
+<h3 id="predicting-hispanic-ethnicity-from-texas-100x-i">Predicting <em>Hispanic</em> ethnicity from Texas-100X (I)</h3>
 
 <blockquote>
 <p><strong>Threat Setting:</strong> <br>
@@ -999,7 +999,7 @@ IP$^\dagger$ is the imputation with access to class label</p>
 
 <p><center><strong>Table 3:</strong> PPV (%) for predicting top-100 records from out-of-distributon candidate set (Texas-100X). Model is trained on general distribution.</center></p>
 
-<h3 id="predicting-hispanic-ethnicity-on-texas-100x-ii">Predicting <em>Hispanic</em> ethnicity on Texas-100X (II)</h3>
+<h3 id="predicting-hispanic-ethnicity-from-texas-100x-ii">Predicting <em>Hispanic</em> ethnicity from Texas-100X (II)</h3>
 
 <p>Here we consider the scenario where the training data comes from skewed distribution, while an adversary (in low adversarial knowledge setting) might have access to the general pupulation distribution.</p>
 
@@ -1386,6 +1386,382 @@ Training distirbution is a skewed distribution limited to records from most popu
 <li>In all the above settings, the white-box attacks perform similar on both training and test candidates, unlike the membership inference case where the attacks perform dissimilar across training and test candidate sets.</li>
 <li>White-box attack outperforms even the imputation attack that has access to the class label. Thus, the model is leaking something beyond what an imputation can learn from the same data that the model is trained on. Is this because the imputation model is not learning effectively?</li>
 </ul>
+
+<h2 id="jul-14-2022-vanilla-model-training-contd">[Jul 14, 2022] Vanilla Model Training [Contd.]</h2>
+
+<hr />
+
+<p>Here we study the inference of <em>Asian</em> race from Texas-100X data set to see if the trend is same as what we observed for ethnicity attribute above. For this experiment, we remove the ethnicity attribute from the model training, since it is correlated to the target race attribute as we saw above.</p>
+
+<h3 id="predicting-asian-race-from-texas-100x-i">Predicting <em>Asian</em> race from Texas-100X (I)</h3>
+
+<p>The model is trained on general distribution and the adversary might have access to either the training set, or training distribution or a different distribution based on the adversarial knowledge. In the general distribution, 22% of records have Asian race.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th align="center">High (Train)</th>
+<th align="center">High (Test)</th>
+<th align="center">Med (Train)</th>
+<th align="center">Med (Test)</th>
+<th align="center">Low (Train)</th>
+<th align="center">Low (Test)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Random</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">22 $\pm$ 0</td>
+</tr>
+
+<tr>
+<td align="left">IP</td>
+<td align="center">34 $\pm$ 6</td>
+<td align="center">30 $\pm$ 5</td>
+<td align="center">38 $\pm$ 5</td>
+<td align="center">32 $\pm$ 6</td>
+<td align="center">24 $\pm$ 4</td>
+<td align="center">19 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">IP$^\dagger$</td>
+<td align="center">32 $\pm$ 4</td>
+<td align="center">31 $\pm$ 1</td>
+<td align="center">33 $\pm$ 5</td>
+<td align="center">32 $\pm$ 3</td>
+<td align="center">24 $\pm$ 3</td>
+<td align="center">21 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB</td>
+<td align="center">36 $\pm$ 2</td>
+<td align="center">33 $\pm$ 5</td>
+<td align="center">36 $\pm$ 3</td>
+<td align="center">33 $\pm$ 4</td>
+<td align="center">37 $\pm$ 4</td>
+<td align="center">35 $\pm$ 5</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP</td>
+<td align="center">46 $\pm$ 1</td>
+<td align="center">43 $\pm$ 3</td>
+<td align="center">46 $\pm$ 2</td>
+<td align="center">51 $\pm$ 4</td>
+<td align="center">29 $\pm$ 2</td>
+<td align="center">24 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP</td>
+<td align="center">40 $\pm$ 4</td>
+<td align="center">42 $\pm$ 6</td>
+<td align="center">47 $\pm$ 3</td>
+<td align="center">49 $\pm$ 5</td>
+<td align="center">29 $\pm$ 3</td>
+<td align="center">34 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP</td>
+<td align="center">43 $\pm$ 7</td>
+<td align="center">44 $\pm$ 5</td>
+<td align="center">44 $\pm$ 5</td>
+<td align="center">48 $\pm$ 2</td>
+<td align="center">32 $\pm$ 6</td>
+<td align="center">32 $\pm$ 5</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP$^\dagger$</td>
+<td align="center">47 $\pm$ 2</td>
+<td align="center">46 $\pm$ 3</td>
+<td align="center">46 $\pm$ 4</td>
+<td align="center">47 $\pm$ 6</td>
+<td align="center">31 $\pm$ 3</td>
+<td align="center">25 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP$^\dagger$</td>
+<td align="center">46 $\pm$ 6</td>
+<td align="center">46 $\pm$ 3</td>
+<td align="center">46 $\pm$ 5</td>
+<td align="center">51 $\pm$ 4</td>
+<td align="center">34 $\pm$ 2</td>
+<td align="center">36 $\pm$ 2</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP$^\dagger$</td>
+<td align="center">47 $\pm$ 3</td>
+<td align="center">46 $\pm$ 1</td>
+<td align="center">45 $\pm$ 9</td>
+<td align="center">49 $\pm$ 6</td>
+<td align="center">33 $\pm$ 5</td>
+<td align="center">36 $\pm$ 4</td>
+</tr>
+</tbody>
+</table>
+
+<p><center><strong>Table 7:</strong> PPV (%) for predicting top-100 records on Texas-100X. Model is trained on general distribution.</center></p>
+
+<p><strong>Remark:</strong> We observe the same trend&mdash; white-box attack does better than imputation and combining drastically improves the PPV of the combined attack on the general distribution candidate sets. Thus model is learning something useful about the distribution beyond the imputation. In the low setting, where the adversary only has access to skewed distribution, white-box attack still learns something useful, but combining with imputation does not further improve the PPV, suggesting that the attack signal is not different from imputation.</p>
+
+<h3 id="predicting-asian-race-from-texas-100x-ii">Predicting <em>Asian</em> race from Texas-100X (II)</h3>
+
+<p>Here the model is trained on the skewed distribution that has 15% of records with Asian race.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th align="center">High (Train)</th>
+<th align="center">High (Test)</th>
+<th align="center">Med (Train)</th>
+<th align="center">Med (Test)</th>
+<th align="center">Low (Train)</th>
+<th align="center">Low (Test)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Random</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+</tr>
+
+<tr>
+<td align="left">IP</td>
+<td align="center">29 $\pm$ 4</td>
+<td align="center">26 $\pm$ 5</td>
+<td align="center">25 $\pm$ 4</td>
+<td align="center">25 $\pm$ 3</td>
+<td align="center">18 $\pm$ 5</td>
+<td align="center">16 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">IP$^\dagger$</td>
+<td align="center">29 $\pm$ 3</td>
+<td align="center">31 $\pm$ 3</td>
+<td align="center">30 $\pm$ 4</td>
+<td align="center">28 $\pm$ 5</td>
+<td align="center">19 $\pm$ 4</td>
+<td align="center">14 $\pm$ 1</td>
+</tr>
+
+<tr>
+<td align="left">WB</td>
+<td align="center">40 $\pm$ 7</td>
+<td align="center">34 $\pm$ 7</td>
+<td align="center">40 $\pm$ 6</td>
+<td align="center">35 $\pm$ 6</td>
+<td align="center">34 $\pm$ 3</td>
+<td align="center">36 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP</td>
+<td align="center">46 $\pm$ 5</td>
+<td align="center">46 $\pm$ 4</td>
+<td align="center">47 $\pm$ 5</td>
+<td align="center">48 $\pm$ 4</td>
+<td align="center">18 $\pm$ 3</td>
+<td align="center">18 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP</td>
+<td align="center">50 $\pm$ 3</td>
+<td align="center">55 $\pm$ 10</td>
+<td align="center">54 $\pm$ 4</td>
+<td align="center">55 $\pm$ 10</td>
+<td align="center">17 $\pm$ 6</td>
+<td align="center">16 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP</td>
+<td align="center">53 $\pm$ 4</td>
+<td align="center">54 $\pm$ 6</td>
+<td align="center">54 $\pm$ 2</td>
+<td align="center">54 $\pm$ 3</td>
+<td align="center">20 $\pm$ 2</td>
+<td align="center">17 $\pm$ 1</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP$^\dagger$</td>
+<td align="center">44 $\pm$ 2</td>
+<td align="center">49 $\pm$ 3</td>
+<td align="center">46 $\pm$ 6</td>
+<td align="center">42 $\pm$ 6</td>
+<td align="center">21 $\pm$ 3</td>
+<td align="center">20 $\pm$ 4</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP$^\dagger$</td>
+<td align="center">53 $\pm$ 5</td>
+<td align="center">55 $\pm$ 7</td>
+<td align="center">57 $\pm$ 4</td>
+<td align="center">58 $\pm$ 8</td>
+<td align="center">16 $\pm$ 7</td>
+<td align="center">19 $\pm$ 8</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP$^\dagger$</td>
+<td align="center">53 $\pm$ 6</td>
+<td align="center">58 $\pm$ 5</td>
+<td align="center">54 $\pm$ 4</td>
+<td align="center">58 $\pm$ 8</td>
+<td align="center">19 $\pm$ 6</td>
+<td align="center">18 $\pm$ 3</td>
+</tr>
+</tbody>
+</table>
+
+<p><center><strong>Table 8:</strong> PPV (%) for predicting top-100 records on Texas-100X. Model is trained on general distribution.</center></p>
+
+<p><strong>Remark:</strong> Here also the observation is the same. White-box attack does better than imputation when the model is trained on the skewed distribution and the candidate sets are also from the skewed distribution.</p>
+
+<h4 id="results-on-out-of-distribution-candidate-set-2">Results on out-of-distribution candidate set</h4>
+
+<p>Here we evaluate the attacks on out-of-distribution candidate set. For the model trained on general distribution, the OOD set is from the skewed distribution, and vice-versa.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;High <br>(skewed $\mathcal{D}$)</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;Med <br>(skewed $\mathcal{D}$)</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;Low <br>(skewed $\mathcal{D}$)</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;High <br>(general $\mathcal{D}$)</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;Med <br>(general $\mathcal{D}$)</th>
+<th align="center">&nbsp;&nbsp;&nbsp;&nbsp;Low <br>(general $\mathcal{D}$)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Random</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">15 $\pm$ 0</td>
+<td align="center">21 $\pm$ 0</td>
+<td align="center">21 $\pm$ 0</td>
+<td align="center">21 $\pm$ 0</td>
+</tr>
+
+<tr>
+<td align="left">IP</td>
+<td align="center">17 $\pm$ 2</td>
+<td align="center">16 $\pm$ 5</td>
+<td align="center">31 $\pm$ 4</td>
+<td align="center">26 $\pm$ 4</td>
+<td align="center">22 $\pm$ 2</td>
+<td align="center">29 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">IP$^\dagger$</td>
+<td align="center">17 $\pm$ 2</td>
+<td align="center">16 $\pm$ 4</td>
+<td align="center">32 $\pm$ 4</td>
+<td align="center">23 $\pm$ 5</td>
+<td align="center">25 $\pm$ 4</td>
+<td align="center">30 $\pm$ 2</td>
+</tr>
+
+<tr>
+<td align="left">WB</td>
+<td align="center">36 $\pm$ 8</td>
+<td align="center">36 $\pm$ 8</td>
+<td align="center">40 $\pm$ 6</td>
+<td align="center">35 $\pm$ 5</td>
+<td align="center">35 $\pm$ 5</td>
+<td align="center">35 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP</td>
+<td align="center">22 $\pm$ 4</td>
+<td align="center">22 $\pm$ 5</td>
+<td align="center">46 $\pm$ 3</td>
+<td align="center">32 $\pm$ 3</td>
+<td align="center">29 $\pm$ 3</td>
+<td align="center">43 $\pm$ 3</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP</td>
+<td align="center">19 $\pm$ 3</td>
+<td align="center">19 $\pm$ 3</td>
+<td align="center">57 $\pm$ 6</td>
+<td align="center">33 $\pm$ 4</td>
+<td align="center">31 $\pm$ 2</td>
+<td align="center">45 $\pm$ 5</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP</td>
+<td align="center">22 $\pm$ 0</td>
+<td align="center">20 $\pm$ 5</td>
+<td align="center">55 $\pm$ 4</td>
+<td align="center">33 $\pm$ 5</td>
+<td align="center">33 $\pm$ 2</td>
+<td align="center">42 $\pm$ 8</td>
+</tr>
+
+<tr>
+<td align="left">WB$\cdot$IP$^\dagger$</td>
+<td align="center">24 $\pm$ 3</td>
+<td align="center">21 $\pm$ 2</td>
+<td align="center">50 $\pm$ 3</td>
+<td align="center">32 $\pm$ 5</td>
+<td align="center">28 $\pm$ 2</td>
+<td align="center">44 $\pm$ 7</td>
+</tr>
+
+<tr>
+<td align="left">WB$\diamondsuit$IP$^\dagger$</td>
+<td align="center">19 $\pm$ 4</td>
+<td align="center">19 $\pm$ 3</td>
+<td align="center">57 $\pm$ 4</td>
+<td align="center">32 $\pm$ 3</td>
+<td align="center">31 $\pm$ 5</td>
+<td align="center">43 $\pm$ 5</td>
+</tr>
+
+<tr>
+<td align="left">WB$\square$IP$^\dagger$</td>
+<td align="center">20 $\pm$ 6</td>
+<td align="center">20 $\pm$ 3</td>
+<td align="center">57 $\pm$ 3</td>
+<td align="center">32 $\pm$ 4</td>
+<td align="center">31 $\pm$ 4</td>
+<td align="center">39 $\pm$ 4</td>
+</tr>
+</tbody>
+</table>
+
+<p><center><strong>Table 9:</strong> PPV (%) for predicting top-100 records on Texas-100X. Model is trained without Ethnicity attribute.</center></p>
 
     </div>
 
