@@ -6,10 +6,28 @@
     <description>Recent content in David Evans on Bargav Jayaraman</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Sep 2022 00:00:00 +0000</lastBuildDate>
     
 	    <atom:link href="https://bargavjayaraman.github.io/authors/david-evans/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Are Attribute Inference Attacks Just Imputation?</title>
+      <link>https://bargavjayaraman.github.io/publication/revisiting-ai/</link>
+      <pubDate>Fri, 02 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/revisiting-ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Combing for Credentials: Active Pattern Extraction from Smart Reply</title>
+      <link>https://bargavjayaraman.github.io/publication/smart-reply-attack/</link>
+      <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/smart-reply-attack/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Revisiting Membership Inference Under Realistic Assumptions</title>

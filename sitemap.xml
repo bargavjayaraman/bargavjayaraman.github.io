@@ -20,12 +20,93 @@
   
   <url>
     <loc>https://bargavjayaraman.github.io/authors/admin/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication_types/3/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication/revisiting-ai/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bargavjayaraman.github.io/authors/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/david-evans/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/differential-privacy/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication_types/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/</loc>
+    <lastmod>2022-09-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication/smart-reply-attack/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/esha-ghosh/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/huseyin-inan/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/melissa-chase/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/sambuddha-roy/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/wei-dai/</loc>
+    <lastmod>2022-07-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -35,26 +116,8 @@
   </url>
   
   <url>
-    <loc>https://bargavjayaraman.github.io/tags/differential-privacy/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://bargavjayaraman.github.io/post/</loc>
     <lastmod>2022-07-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/</loc>
-    <lastmod>2022-07-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -69,32 +132,9 @@
   </url>
   
   <url>
-    <loc>https://bargavjayaraman.github.io/publication_types/3/</loc>
-    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/authors/david-evans/</loc>
-    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://bargavjayaraman.github.io/authors/lingxiao-wang/</loc>
     <lastmod>2020-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/publication_types/</loc>
-    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/publication/</loc>
-    <lastmod>2020-05-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
