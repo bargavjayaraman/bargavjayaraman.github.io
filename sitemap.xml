@@ -20,18 +20,88 @@
   
   <url>
     <loc>https://bargavjayaraman.github.io/authors/admin/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bargavjayaraman.github.io/publication_types/3/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/access-control/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://bargavjayaraman.github.io/authors/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/hamid-mozaffari/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/krishnaram-kenthapadi/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/large-language-models/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/parameter-efficient-fine-tuning/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication/permissioned-llms/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication_types/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/publication/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/tags/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/virendra-j.-marathe/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://bargavjayaraman.github.io/authors/william-f.-shen/</loc>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -54,29 +124,6 @@
   
   <url>
     <loc>https://bargavjayaraman.github.io/authors/kamalika-chaudhuri/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/machine-learning/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/publication_types/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/publication/</loc>
-    <lastmod>2024-02-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://bargavjayaraman.github.io/tags/</loc>
     <lastmod>2024-02-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

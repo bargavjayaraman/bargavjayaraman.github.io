@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>William F. Shen on Bargav Jayaraman</title>
+    <link>https://bargavjayaraman.github.io/authors/william-f.-shen/</link>
+    <description>Recent content in William F. Shen on Bargav Jayaraman</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 May 2025 00:00:00 +0000</lastBuildDate>
+    
+	    <atom:link href="https://bargavjayaraman.github.io/authors/william-f.-shen/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Permissioned LLMs: Enforcing Access Control in Large Language Models</title>
+      <link>https://bargavjayaraman.github.io/publication/permissioned-llms/</link>
+      <pubDate>Thu, 29 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://bargavjayaraman.github.io/publication/permissioned-llms/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
